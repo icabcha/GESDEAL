@@ -22,6 +22,17 @@
             //Establecemos la conexión con MySQL
             $conexion=mysqli_connect($host,$usuario,$pass) or die("Error de conexión");
             
+            //Verificamos si la base de datos GESDEAL existe
+            $existe_bd = mysqli_select_db($conexion, 'GESDEAL');
+
+            //Si la base de datos no existe, redirigirimos a crear_bd.php
+            if (!$existe_bd) {
+                //Cerramos conexión temporal
+                mysqli_close($conexion); 
+                header('Location: ./sql/crear_bd.php');
+                exit();
+            }
+
             //Seleccionamos la base de datos
             $seleccionar=mysqli_select_db($conexion,'GESDEAL') or die("Error seleccionando la base de datos");
             
