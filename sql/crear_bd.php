@@ -37,16 +37,17 @@
             EMPTEL INT(9) NOT NULL UNIQUE,
             EMPSUE DOUBLE(6,2) NOT NULL,
             EMPCON VARCHAR(10) NOT NULL,
+            EMPROL ENUM('admin', 'user') NOT NULL DEFAULT 'user',
             CONSTRAINT PK_EMP PRIMARY KEY (EMPCOD)
         )";
         mysqli_query($conexion, $tabla1) or die("Error creando la tabla empleados");
 
         //Creamos la sentencia SQL de inserción y la ejecutamos
         $insertar1="INSERT INTO EMPLEADOS VALUES
-        ('EM-01', '75968938C', 'LEO CASAL', 681349905, 993.00, 'leo38'),
-        ('EM-02', '34032135F', 'ROSA REAL', 655419803, 1020.00, 'rosa35'),
-        ('EM-03', '98765432A', 'CARLOS FILA', 600410321, 1003.20, 'carlos32'),
-        ('EM-04', '64887102L', 'DAVID REY', 660378112, 1304.75, 'david02')";
+        ('EM-01', '75968938C', 'LEO CASAL', 681349905, 993.00, 'leo38', 'admin'),
+        ('EM-02', '34032135F', 'ROSA REAL', 655419803, 1020.00, 'rosa35', 'user'),
+        ('EM-03', '98765432A', 'CARLOS FILA', 600410321, 1003.20, 'carlos32', 'user'),
+        ('EM-04', '64887102L', 'DAVID REY', 660378112, 1304.75, 'david02', 'user')";
         mysqli_query($conexion, $insertar1) or die("Error insertando datos en la tabla empleados");
 
         //Creamos la tabla artículos y la ejecutamos
