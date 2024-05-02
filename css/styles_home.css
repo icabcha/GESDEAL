@@ -1,0 +1,33 @@
+/*Irene Cabeza Chacón*/
+
+/*Estilo de todo el cuerpo de la página*/
+body{
+    background-color: #a6a6a6;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilos para la cabecera */
+.cabecera {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.cabecera p{
+    padding-right: 15px;
+}
+
+.cabecera a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+}
+
+.cabecera a:hover{
+    color: #008037;
+}
+
+.cabecera a img{
+    width: 15px;
+}
