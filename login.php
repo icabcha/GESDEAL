@@ -7,9 +7,10 @@
     <link rel="icon" type="image/png" href="img/logo.png"/>
     <link href="css/styles_login.css" rel="stylesheet" type="text/css">
     <meta name="author" content="Irene Cabeza Chacón">
+    <script src="./js/foco.js"></script>
     <title>GESDEAL</title>
 </head>
-<body>
+<body onload="ponerFoco()">
     <?php
         //Si hemos pulsado en el botón del formulario, se hará todo lo que contiene el 'if'
         if(isset($_POST['submit'])){
@@ -74,10 +75,10 @@
     <div class="formulario">
         <form action="" method="POST">
             <p><label for="dni">DNI:</label></p>
-            <p><input type="text" name="dni" required/></p>   
+            <p><input type="text" name="dni" id="dni" required/></p>   
       
             <p><label for="contraseña">Contraseña:</label></p>
-            <p><input type="password" name="contraseña" required/></p>             
+            <p><input type="password" name="contraseña" id="contraseña" required/></p>             
       
             <button class="button" type="submit" name="submit"><span>Iniciar sesión</span></button>
         </form>
