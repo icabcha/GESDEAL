@@ -1,0 +1,96 @@
+/*Irene Cabeza Chacón*/
+
+/*Estilo de todo el cuerpo de la página*/
+body{
+    background-color: #a6a6a6;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Estilo caja del formulario*/
+.formulario{
+    background-color: white;
+    text-align: center;
+    border: 2px solid #008037;
+    border-radius: 4px;
+    margin-left: 35%;
+    margin-right: 35%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+/*Estilo del logo*/
+p{
+    text-align: center;
+}
+
+img{
+    width: 250px;
+    margin-bottom: -1%;
+}
+
+/*Estilo botón de login*/
+.button{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #008037;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    padding: 14px 20px;
+    width: 50%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Estilo del texto del botón de login*/
+.button span{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+/*Estilo de lo que aparece a la derecha del texto del botón del login*/
+.button span:after{
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+/*Estilo del texto del botón de login cuando nos posicionamos sobre él*/
+.button:hover span{
+    padding-right: 25px;
+}
+
+/*Estilo de lo que aparece a la derecha del texto del botón del login cuando nos posicionamos sobre él*/
+.button:hover span:after{
+    opacity: 1;
+    right: 0;
+}
+
+/*Estilo de la imagen del mensaje de error*/
+#img_error{
+    float: left;
+    width: 2%;
+    padding: 10px;
+}
+
+/*Estilo del mensaje de error*/
+#error{
+    background-color: rgb(215, 100, 100);
+    border: 1px solid;
+    margin: 10px 0px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    text-align: left;
+    padding-left: 60px;
+    width: auto;
+}
