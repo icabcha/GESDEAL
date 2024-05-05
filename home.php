@@ -36,6 +36,8 @@
     <!--Cabecera-->
     <div class="cabecera">
         <p>Bienvenido/a <?php echo $nombre_empleado; ?> </p>
+        <!-- Enlace para ir al inicio -->
+        <a href="home.php">Inicio <img src="img/home.png" alt="home"></a>
         <!-- Enlace al perfil del usuario -->
         <a href="perfil.php">Mi Perfil <img src="img/user.png" alt="user"></a>
         <!-- Enlace para hacer Log out -->
