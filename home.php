@@ -35,13 +35,29 @@
     ?>
     <!--Cabecera-->
     <div class="cabecera">
-        <p>Bienvenido/a <?php echo $nombre_empleado; ?> </p>
         <!-- Enlace para ir al inicio -->
         <a href="home.php">Inicio <img src="img/home.png" alt="home"></a>
         <!-- Enlace al perfil del usuario -->
         <a href="perfil.php">Mi Perfil <img src="img/user.png" alt="user"></a>
         <!-- Enlace para hacer Log out -->
         <a href="logout.php">Cerrar sesión <img src="img/exit.png" alt="exit"></a>
+    </div>
+
+    <!--Creamos con la etiqueta nav una sección de la página que proporcionará enlaces de navegación-->
+    <nav class="nav">
+        <!--En esta sección hay una lista no ordenada de elementos-->
+        <ul class="list">
+            <!--Para las distintas clases de la lista, he utilizado BEM que es una metodología de nomenclatura
+            para definir las clases de forma más ordenada para así no perderme a la hora de realizar el html y el css, ya que es 
+            bastante largo-->
+        </ul>
+    </nav>
+
+    
+    <!--Utilizamos la etiqueta iframe para "crear" una sección en el html que contiene y mostrará otra página html.
+    Por defecto aparecerá la página de Inicio en el iframe-->
+    <div class="iframe">
+        <iframe src="welcome.php" frameborder="0" name="seccion_iframe"></iframe>
     </div>
 </body>
 </html>
