@@ -1,13 +1,23 @@
 /*Irene Cabeza Chacón*/
 
+/*Estilo de toda la página*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /*Estilo de todo el cuerpo de la página*/
 body{
     background-color: #a6a6a6;
     font-family: Arial, Helvetica, sans-serif;
+    display: flex;
 }
 
 /* Estilos para la cabecera */
 .cabecera {
+    width: 100%;
+    height: 10%;
     color: white;
     display: flex;
     align-items: center;
@@ -30,4 +40,56 @@ body{
 
 .cabecera a img{
     width: 15px;
+}
+
+/* Estilo de la zona de la lista principal de navegación */
+.list {
+    position: absolute;
+    left: 0;
+    top: 0; 
+    width: 300px; 
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 16px 16px 0;
+    background: white;
+    z-index: 1000;
+}
+
+/*Estilo del iframe*/
+iframe{
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilo del contenedor, es decir, de la sección que contiene el iframe */
+.iframe {
+    position: absolute;
+    top: 5%;
+    bottom: 0;
+    left: 300px;
+    right: 0;
+    margin: 20px; 
+}
+
+/*Estilo de la sección del texto de bienvenida en la página de inicio*/
+.texto_bienvenida{
+    margin: 150px;
+    width: 80%;
+    background-color: white;
+    text-align: center;
+    border: 2px solid #008037;
+    border-radius: 4px;
+    padding: 2% 0;
+}
+
+/*Estilo del logo en la página de inicio*/
+#logo{
+    text-align: center;
+    width: 200px;
+}
+
+/*Estilo del párrafo de la sección del texto de bienvenida de la página de inicio*/
+.texto_bienvenida p{
+    margin-top: 3%;
 }
