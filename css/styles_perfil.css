@@ -1,0 +1,77 @@
+/*Irene Cabeza Chacón*/
+
+/*Estilo de todo el cuerpo de la página*/
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Estilo de la imagen de perfil*/
+#img-user{
+    width: 20%;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid #008037;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/*Estilo del título y de la tabla*/
+h1, table{
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    border: 2px solid #008037;
+    border-radius: 4px;
+    padding: 2% 0;
+}
+
+/*Estilo de las imágenes de mostrar y ocultar contraseña*/
+.show-pass, .hide-pass{
+    width: 13px;
+}
+
+/*Estilo de la imagen del mensaje de error*/
+#img_error{
+	float: left;
+	width: 2%;
+	padding: 20px;
+}
+
+/*Estilo mensaje de error*/
+#error{
+	background-color: rgb(215, 100, 100);
+	border: 1px solid black;
+    margin: 10px 0px;
+    padding:15px 10px 15px 50px;
+    background-position: 10px center;
+	text-align: left;
+	padding-left: 60px;
+    width:auto;
+}
+
+/*Estilo de la imagen del mensaje de éxito*/
+#img_exito{
+	float: left;
+	width: 2%;
+	padding: 20px;
+}
+
+/*Estilo de la imagen del mensaje de info*/
+#img_info{
+	float: left;
+	width: 2%;
+	padding: 38px 10px 0px 38px;
+}
+
+/*Estilo mensaje de éxito y mensaje de info*/
+#exito, #info{
+	background-color: white;
+	border: 1px solid #008037;
+    margin: 10px 0px;
+    padding:15px 10px 15px 50px;
+    background-position: 10px center;
+	text-align: left;
+	padding-left: 60px;
+    width:auto;
+}
