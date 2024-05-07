@@ -38,7 +38,7 @@
         <!-- Enlace para ir al inicio -->
         <a href="home.php">Inicio <img src="img/home.png" alt="home"></a>
         <!-- Enlace al perfil del usuario -->
-        <a href="perfil.php">Mi Perfil <img src="img/user.png" alt="user"></a>
+        <a href="perfil.php" target="seccion_iframe">Mi Perfil <img src="img/user.png" alt="user"></a>
         <!-- Enlace para hacer Log out -->
         <a href="logout.php">Cerrar sesión <img src="img/exit.png" alt="exit"></a>
     </div>
