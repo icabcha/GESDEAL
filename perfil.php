@@ -82,11 +82,12 @@
             //Si existen las variables se hará todo lo que contiene el 'if'
             if(isset($codigo) && isset($dni) && isset($nombre) && isset($telefono) && isset($contraseña)){
                 //Creamos la sentencia SQL de actualización/modificación
-                $actualizar="UPDATE EMPLEADOS SET EMPDNI='$dni' AND EMPNOM='$nombre' AND EMPTEL='$telefono' AND EMPCON='$contraseña' WHERE EMPCOD='$codigo'";
+                $actualizar="UPDATE EMPLEADOS SET EMPDNI='$dni', EMPNOM='$nombre', EMPTEL='$telefono', EMPCON='$contraseña' WHERE EMPCOD='$codigo'";
 
                 //Si no da fallos a la hora de ejecutar la sentencia anterior, se hará todo lo que contiene el 'if', si no se hará todo lo que
                 //contiene el 'else'
                 if(mysqli_query($conexion,$actualizar)){
+                    header('Location:welcome.php');
                     ?>
                         <img id="img_exito" src="img/tick.png" alt="exito">
                         <p id="exito">Su perfil se ha guardado correctamente.</p>
