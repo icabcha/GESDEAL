@@ -42,30 +42,32 @@
 
     <h1>Gestión de mi perfil</h1>
 
-    <div>
-        <img src="img/user-profile.png" id="img-user" alt="user-profile">
+    <div id="contenido">
+        <div>
+            <img src="img/user-profile.png" id="img-user" alt="user-profile">
+        </div>
+
+        <form action="perfil.php" method="POST">
+            <label for="codigo">Código:</label>
+            <input type="text" id="codigo" name="codigo" value="<?php echo $codigo; ?>" readonly><br>
+            
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="dni" value="<?php echo $dni; ?>"><br>
+            
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value="<?php echo $nombre; ?>"><br>
+            
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" value="<?php echo $telefono; ?>"><br>
+
+            <label for="pass">Contraseña:</label>
+            <input type="password" id="pass" name="pass" value="<?php echo $pass; ?>">
+            <img src="img/eye-blocked.png" class="show-pass" onclick="togglePassword()" alt="Mostrar contraseña">
+            <img src="img/eye.png" class="hide-pass" onclick="togglePassword()" alt="Ocultar contraseña" style="display: none;"><br>
+
+            <input class="button" type="submit" value="Guardar" name="Guardar">
+        </form>
     </div>
-
-    <form action="perfil.php" method="POST">
-        <label for="codigo">Código:</label>
-        <input type="text" id="codigo" name="codigo" value="<?php echo $codigo; ?>" readonly><br>
-        
-        <label for="dni">DNI:</label>
-        <input type="text" id="dni" name="dni" value="<?php echo $dni; ?>"><br>
-        
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" value="<?php echo $nombre; ?>"><br>
-        
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" value="<?php echo $telefono; ?>"><br>
-
-        <label for="pass">Contraseña:</label>
-        <input type="password" id="pass" name="pass" value="<?php echo $pass; ?>">
-        <img src="img/eye-blocked.png" class="show-pass" onclick="togglePassword()" alt="Mostrar contraseña">
-        <img src="img/eye.png" class="hide-pass" onclick="togglePassword()" alt="Ocultar contraseña" style="display: none;"><br>
-
-        <input type="submit" value="Guardar" name="Guardar">
-    </form>
 
     <?php
         //Si hemos pulsado en el botón "Guardar", se hará todo lo que contiene el 'if'
