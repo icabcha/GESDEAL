@@ -3,6 +3,9 @@
 /*Estilo de todo el cuerpo de la página*/
 body{
     font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /*Estilo de la imagen de perfil*/
@@ -14,6 +17,7 @@ body{
     border: 2px solid #008037;
     background-color: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
 }
 
 /*Estilo del título y de la tabla*/
@@ -29,6 +33,9 @@ h1, table{
 /*Estilo de las imágenes de mostrar y ocultar contraseña*/
 .show-pass, .hide-pass{
     width: 13px;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-left: -30px;
 }
 
 /*Estilo de la imagen del mensaje de error*/
@@ -74,4 +81,53 @@ h1, table{
 	text-align: left;
 	padding-left: 60px;
     width:auto;
+}
+
+/*Estilo del contenedor de la imagen y el formulario */
+#contenido {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+}
+
+form {
+    background-color: white;
+    border: 2px solid #008037;
+    border-radius: 4px;
+    padding: 20px;  
+    width: 100%;
+
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input{
+    width: 99%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button{
+    width: 99%;
+    background-color: #008037;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+}
+
+#codigo{
+    background-color: #CCCCCC;
 }
