@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/styles_listado.css" rel="stylesheet" type="text/css">
+    <link href="../css/styles_listados.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" href="../img/logo.png"/>
     <meta name="author" content="Irene Cabeza Chacón">
     <title>GESDEAL</title>
@@ -27,7 +27,7 @@
     <div id="contenedor_paginacion">
         <div id="paginacion"></div>
     </div>
-    
+
     <script src="../js/paginacion.js"></script>
 
     <?php
@@ -50,13 +50,15 @@
         while($registro = mysqli_fetch_assoc($registros)){
             $articulos[] = $registro;
         }
-        // Cerramos la conexión
+
+        //Cerramos la conexión
         mysqli_close($conexion);
+
+        //Convertimos los datos obtenidos de PHP a formato JSON para poder utilizarlos fácilmente en JavaScript
+        $datos_json = json_encode($articulos);
     ?>
 
-    <!--Convertimos los datos obtenidos de PHP a formato JSON para poder manipularlos fácilmente en JavaScript-->
-    <script>
-        const articulos = <?php echo json_encode($articulos); ?>;
-    </script>
+    <!--Incluimos los datos como un atributo data-*-->
+    <div id="datos" data='<?php echo $datos_json; ?>'></div>
 </body>
 </html>
