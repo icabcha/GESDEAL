@@ -1,0 +1,73 @@
+/*Irene Cabeza Chacón*/
+
+/*Estilo de todo el cuerpo de la página*/
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Estilo del título y de la tabla*/
+h1, table{
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    border: 2px solid #008037;
+    border-radius: 4px;
+    padding: 2% 0;
+}
+
+/*Estilo para que los bordes de la tabla se fusionen y no estén separados*/
+table{
+    border-collapse: collapse;
+}
+
+/*Estilo de cada celda de la tabla*/
+td{
+    border: 1px solid #545454;
+    padding: 8px;
+}
+
+/*Estilo de la primera fila de la tabla*/
+#fila1{
+    background-color: #008037;
+}
+
+/*Estilo de cada columna de la tablas de la página Linea de detalle*/
+.ldd--col{
+    width: 33%;
+    padding: 8px;
+    border: none;
+}
+
+/*Estilo de la tabla cuya clase es ldd en la página de Linea de detalle*/
+.ldd{
+    margin-top: 2%;
+   border-bottom: 2px solid #008037;
+}
+
+/*Estilo de la fila que se añade a una tabla ya existente en la página Línea de detalle*/
+.ldd--row{
+    border-top: none;
+    border-bottom: 2px solid #008037;
+}
+
+/* Estilo para el contenedor de paginación */
+#contenedor_paginacion{
+    display: flex;
+    justify-content: flex-end; /* Alinear los elementos al final del contenedor (derecha) */
+}
+
+/*Estilo para los botones de paginación*/
+.paginacion-boton{
+    background-color: #008037;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/*Estilo cuando se pasa el cursor sobre los botones de paginación*/
+.paginacion-boton:hover{
+    background-color: #006022;
+}
