@@ -21,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Las filas se irán añadiendo aquí con el código realizado en JavaScript en paginacion.js -->
+            <!--Las filas se irán añadiendo aquí con el código realizado en JavaScript en paginacion.js-->
         </tbody>
     </table>
 
