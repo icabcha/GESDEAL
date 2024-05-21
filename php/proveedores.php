@@ -10,6 +10,11 @@
 </head>
 <body>
     <h1>Listado de proveedores</h1>
+    
+    <div id="contenedor_paginacion">
+        <div id="paginacion"></div>
+    </div>
+
     <table id="tabla">
         <thead>
             <tr id="fila1">
@@ -18,16 +23,13 @@
                 <td>Nombre</td>
                 <td>Dirección</td>
                 <td>Teléfono</td>
+                <td>Operaciones</td>
             </tr>
         </thead>
         <tbody>
             <!-- Las filas se irán añadiendo aquí con el código realizado en JavaScript en paginacion.js -->
         </tbody>
     </table>
-
-    <div id="contenedor_paginacion">
-        <div id="paginacion"></div>
-    </div>
 
     <script src="../js/paginacion.js"></script>
 
