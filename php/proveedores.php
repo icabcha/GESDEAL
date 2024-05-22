@@ -63,5 +63,7 @@
         
     <!--Incluimos los datos como un atributo data-*-->
     <div id="datos" data='<?php echo $datos_json; ?>'></div>
+
+    <button class="button">Añadir proveedor +</button>
 </body>
 </html>
