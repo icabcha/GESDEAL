@@ -68,6 +68,22 @@ td{
 }
 
 /*Estilo cuando se pasa el cursor sobre los botones de paginación*/
-.paginacion-boton:hover{
+.paginacion-boton:hover, .button:hover{
     background-color: #006022;
+}
+
+.button{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #008037;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    padding: 14px 20px;
+    width: 15%;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
