@@ -60,11 +60,13 @@
     ?>
 
     <h1><?php echo $title; ?></h1>
-    <form action="form_añadir.php?type=<?php echo $type; ?>" method="POST">
-        <?php echo $fields; ?>
-        <input type="submit" value="Añadir <?php echo $type; ?>">
-    </form>
-
+    <div id="contenido"></div>
+        <form action="form_añadir.php?type=<?php echo $type; ?>" method="POST">
+            <?php echo $fields; ?>
+            <input type="submit" value="Añadir <?php echo $type; ?>">
+        </form>
+    </div>
+    
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Creamos las variables de conexión a MySQL
