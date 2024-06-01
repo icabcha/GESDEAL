@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", function() {
     //Obtenemos los datos del elemento con el atributo data-*
     var datos = JSON.parse(document.getElementById("datos").getAttribute("data"));
 
+    var datosContainer = document.getElementById("tabla");
+    var type = datosContainer.getAttribute("data-type");
+    var idField = datosContainer.getAttribute("data-idField");
+
     //Función para mostrar la tabla con los datos de la página especificada
     function mostrarTabla(pagina) {
         //Limpiamos el contenido actual de la tabla
@@ -29,6 +33,47 @@ document.addEventListener("DOMContentLoaded", function() {
                 var celda = fila.insertCell();
                 celda.textContent = texto;
             });
+
+            //Agregar columna de operaciones con imágenes
+            var celdaOperaciones = fila.insertCell();
+            var imgEditar = document.createElement('img');
+            imgEditar.src = '../img/pencil.svg'; 
+            imgEditar.alt = 'Editar';
+            imgEditar.style.cursor = 'pointer';
+            imgEditar.style.width = '10%';
+            imgEditar.style.marginRight = '10px';
+            imgEditar.addEventListener('click', function() {
+                
+            });
+
+            var imgEliminar = document.createElement('img');
+            imgEliminar.src = '../img/bin.svg';
+            imgEliminar.alt = 'Eliminar';
+            imgEliminar.style.cursor = 'pointer';
+            imgEliminar.style.width = '10%';
+            imgEliminar.addEventListener('click', function() {
+                var id = item[idField]; // Utilizamos el nombre del campo clave primaria para obtener su valor
+
+                // Enviar solicitud para eliminar el registro
+                if (confirm("¿Estás seguro de que deseas eliminar este elemento?")) {
+                    fetch(`../pages/eliminar.php?type=${type}&idField=${idField}&id=${id}`)
+                    .then(response => {
+                        if (response.ok) {
+                            // Obtener el índice de la fila actual
+                            var rowIndex = Array.from(tabla.rows).indexOf(fila);
+                            window.location.reload();
+                            if (rowIndex !== -1) {
+                                // Eliminar la fila de la tabla
+                                tabla.deleteRow(rowIndex);
+                            }
+                        } 
+                    })
+                    .catch(error => console.error('Error al enviar la solicitud:', error));
+                }
+            });
+
+            celdaOperaciones.appendChild(imgEditar);
+            celdaOperaciones.appendChild(imgEliminar);
         });
     }
 
