@@ -10,21 +10,15 @@
 </head>
 <body>
     <?php
+        require './functions.php';
         //Iniciamos una sesión
         session_start();
-        
-        //Creamos las variables de conexión a MySQL
-        $host="localhost";
-        $usuario="root";
-        $pass="";
+
+        comprobarInicioSesion();
+        $conexion = conexionBD();
+
         //Guardamos en la variable $dni el contenido de la variable de sesión $_SESSION["dni"]
         $dni=$_SESSION["dni"];
-
-        //Establecemos la conexión con MySQL
-        $conexion=mysqli_connect($host,$usuario,$pass) or die("Error de conexión");
-
-        //Seleccionamos la base de datos
-        $seleccionar=mysqli_select_db($conexion,'GESDEAL') or die("Error seleccionando la base de datos");
 
         //Creamos la sentencia SQL de consulta y la ejecutamos
         $consultar = "SELECT EMPNOM FROM EMPLEADOS WHERE EMPDNI = '$dni'";
@@ -39,7 +33,7 @@
         <!-- Enlace para ir al inicio -->
         <a href="home.php">Inicio <img src="img/home.png" alt="home"></a>
         <!-- Enlace al perfil del usuario -->
-        <a href="perfil.php" target="seccion_iframe">Mi Perfil <img src="img/user.png" alt="user"></a>
+        <a href="pages/perfil.php" target="seccion_iframe">Mi Perfil <img src="img/user.png" alt="user"></a>
         <!-- Enlace para hacer Log out -->
         <a href="logout.php">Cerrar sesión <img src="img/exit.png" alt="exit"></a>
     </div>
@@ -54,35 +48,35 @@
             <li class="list__item">
                 <div class="list__button">
                     <img src="img/articulos.svg" class="list__img">
-                    <a href="php/articulos.php" target="seccion_iframe" class="nav__link">Artículos</a>
+                    <a href="pages/articulos.php" target="seccion_iframe" class="nav__link">Artículos</a>
                 </div>
             </li>
 
             <li class="list__item">
                 <div class="list__button">
                     <img src="img/proveedores.svg" class="list__img">
-                    <a href="php/proveedores.php" target="seccion_iframe" class="nav__link">Proveedores</a>
+                    <a href="pages/proveedores.php" target="seccion_iframe" class="nav__link">Proveedores</a>
                 </div>
             </li>
 
             <li class="list__item">
                 <div class="list__button">
                     <img src="img/clientes.svg" class="list__img">
-                    <a href="php/clientes.php" target="seccion_iframe" class="nav__link">Clientes</a>
+                    <a href="pages/clientes.php" target="seccion_iframe" class="nav__link">Clientes</a>
                 </div>
             </li>
 
             <li class="list__item">
                 <div class="list__button">
                     <img src="img/pedidos.svg" class="list__img"> 
-                    <a href="php/pedidos.php" target="seccion_iframe" class="nav__link">Pedidos</a>
+                    <a href="pages/pedidos.php" target="seccion_iframe" class="nav__link">Pedidos</a>
                 </div>
             </li>
 
             <li class="list__item">
                 <div class="list__button">
                     <img src="img/lineadedetalle.svg" class="list__img">
-                    <a href="php/lineadedetalle.php" target="seccion_iframe" class="nav__link">Línea de detalle</a>
+                    <a href="pages/lineadedetalle.php" target="seccion_iframe" class="nav__link">Línea de detalle</a>
                 </div>
             </li>
         </ul>
@@ -91,7 +85,7 @@
     <!--Utilizamos la etiqueta iframe para "crear" una sección en el html que contiene y mostrará otra página html.
     Por defecto aparecerá la página de Inicio (welcome.php) en el iframe-->
     <div class="iframe">
-        <iframe src="welcome.php" frameborder="0" name="seccion_iframe"></iframe>
+        <iframe src="pages/welcome.php" frameborder="0" name="seccion_iframe"></iframe>
     </div>
 </body>
 </html>
