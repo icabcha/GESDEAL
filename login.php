@@ -23,6 +23,7 @@
         //mysqli_num_rows($existe_bd) == 0 verifica si la consulta SQL no devuelve ningún resultado
         if (!$existe_bd || mysqli_num_rows($existe_bd) == 0) {
             require 'sql/crear_bd.php';
+            require 'sql/triggers.php';
             mysqli_select_db($conexion, "GESDEAL") or die("Error seleccionando la base de datos después de crearla");
         } else {
             //Seleccionar la base de datos
