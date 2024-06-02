@@ -20,9 +20,7 @@
         $crear="CREATE DATABASE IF NOT EXISTS GESDEAL";
         $creada=mysqli_query($conexion,$crear);
 
-        if($creada){
-            echo "La base de datos GESDEAL se ha creado correctamente <br>";
-        }else{
+        if(!$creada){
             echo "La base de datos GESDEAL no se ha creado <br>";
         }
 
