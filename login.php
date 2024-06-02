@@ -12,63 +12,53 @@
 </head>
 <body onload="ponerFoco()">
     <?php
-        //Si hemos pulsado en el botón del formulario, se hará todo lo que contiene el 'if'
-        if(isset($_POST['submit'])){
-            //Iniciamos una sesión
-            session_start();
-            //Creamos las variables de conexión a MySQL
-            $host="localhost";
-            $usuario="root";
-            $pass="";
-    
-            //Establecemos la conexión con MySQL
-            $conexion=mysqli_connect($host,$usuario,$pass) or die("Error de conexión");
-            
-            //Verificamos si la base de datos GESDEAL existe
-            $existe_bd = mysqli_select_db($conexion, 'GESDEAL');
+        $host = "localhost";
+        $usuario = "root";
+        $pass = "";
 
-            //Si la base de datos no existe, redirigirimos a crear_bd.php
-            if (!$existe_bd) {
-                //Cerramos conexión temporal
-                mysqli_close($conexion); 
-                header('Location: ./sql/crear_bd.php');
-                exit();
+        $conexion = mysqli_connect($host, $usuario, $pass) or die("Error de conexión");
+
+        $existe_bd = mysqli_query($conexion, "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'GESDEAL'");;
+
+        //mysqli_num_rows($existe_bd) == 0 verifica si la consulta SQL no devuelve ningún resultado
+        if (!$existe_bd || mysqli_num_rows($existe_bd) == 0) {
+            require 'sql/crear_bd.php';
+            mysqli_select_db($conexion, "GESDEAL") or die("Error seleccionando la base de datos después de crearla");
+        } else {
+            //Seleccionar la base de datos
+            mysqli_select_db($conexion, "GESDEAL") or die("Error seleccionando la base de datos");
+        }
+
+        if (isset($_POST['submit'])) {
+            session_start();
+
+            $dni = $_REQUEST['dni'];
+            $password = $_REQUEST['contraseña'];
+
+            $_SESSION["dni"] = $dni;
+            $encontrado = FALSE;
+
+            $comprobar = "SELECT EMPDNI, EMPCON FROM EMPLEADOS";
+            $registro1 = mysqli_query($conexion, $comprobar);
+
+            while ($registros = mysqli_fetch_row($registro1)) {
+                if ($registros[0] == $dni && $registros[1] == $password) {
+                    $encontrado = TRUE;
+                }
             }
 
-            //Seleccionamos la base de datos
-            $seleccionar=mysqli_select_db($conexion,'GESDEAL') or die("Error seleccionando la base de datos");
-            
-            //Recogemos en variables los valores introducidos en el formulario
-            $dni=$_REQUEST['dni'];
-            $password=$_REQUEST['contraseña'];
-
-            //Creo una variable de sesión con el DNI y una variable $encontrado con valor FALSE
-            $_SESSION["dni"]=$dni;
-            $encontrado=FALSE;
-
-            //Creamos la sentencia SQL de consulta y la ejecutamos
-            $comprobar="SELECT EMPDNI,EMPCON FROM EMPLEADOS";
-            $registro1=mysqli_query($conexion,$comprobar);
-    
-            //Recorremos todos los resultados de la consulta anterior, si hay coincidencias cambiará el valor de la variable $encontrado
-            while($registros=mysqli_fetch_row($registro1)){
-                if($registros[0]==$dni && $registros[1]==$password){
-                    $encontrado=TRUE;
-                }
-            }   
-            
-            /*Si la variable $encontrado es igual a TRUE, se nos redirigirá a la página de inicio,
-            si no aparecerá un mensaje de error y podremos volver a intentarlo rellenando de nuevo el formulario*/
-            if($encontrado==TRUE){
-                header('location:home.php');   
-            }else{
+            /*Si la variable $encontrado es igual a TRUE, se nos redirigirá a la página de inicio, si no aparecerá un mensaje de error y podremos volver 
+            a intentarlo rellenando de nuevo el formulario*/
+            if ($encontrado == TRUE) {
+                header('Location: home.php');
+                exit();
+            } else {
                 ?>
                 <img id="img_error" src="img/error.png" alt="error">
                 <p id="error">Los datos introducidos no son correctos, inténtelo de nuevo</p>
                 <?php
             }
         }
-
     ?>
     <!--Formulario para iniciar sesión-->
     <p><img src="img/login.png" alt="Logo"></p>
@@ -76,10 +66,8 @@
         <form action="" method="POST">
             <p><label for="dni">DNI:</label></p>
             <p><input type="text" name="dni" id="dni" required/></p>   
-      
             <p><label for="contraseña">Contraseña:</label></p>
             <p><input type="password" name="contraseña" id="contraseña" required/></p>             
-      
             <button class="button" type="submit" name="submit"><span>Iniciar sesión</span></button>
         </form>
     </div>
