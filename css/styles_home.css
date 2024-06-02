@@ -24,20 +24,24 @@ body{
     justify-content: flex-end;
 }
 
+/*Estilo para el párrafo de la cabecera*/
 .cabecera p{
     padding-right: 15px;
 }
 
+/*Estilo para los enlaces de la cabecera*/
 .cabecera a {
     color: white;
     text-decoration: none;
     margin: 15px;
 }
 
+/*Estilo para los enlaces de la cabecera cuando el cursor se posiciona sobre ellos*/
 .cabecera a:hover{
     color: #008037;
 }
 
+/*Estilo para las imágenes de la cabecera*/
 .cabecera a img{
     width: 15px;
 }
@@ -92,4 +96,36 @@ iframe{
 /*Estilo del párrafo de la sección del texto de bienvenida de la página de inicio*/
 .texto_bienvenida p{
     margin-top: 3%;
+}
+
+/*Estilo de la zona de la lista principal de navegación*/
+.list{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 0 16px 16px 0;
+    background: white;
+}
+
+/*Estilo de los items de la lista principal de navegación*/
+.list__item{
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+/*Estilo para cuando nos posicionamos encima de un item*/
+.list__item--click{
+    cursor: pointer;
+}
+
+/*Estilo de la imagen y del texto de cada item de la lista principal de navegación*/
+.list__button{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 70%;
+    margin: 0 auto;
 }
