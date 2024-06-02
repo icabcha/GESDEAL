@@ -27,6 +27,14 @@
         //Guardo el resultado de la consulta anterior
         $nombre=mysqli_fetch_row($registro);
         $nombre_empleado=$nombre[0];
+
+        //Creamos la sentencia SQL de consulta y la ejecutamos
+        $consultar2 = "SELECT EMPROL FROM EMPLEADOS WHERE EMPDNI = '$dni'";
+        $registro2=mysqli_query($conexion,$consultar2);
+
+        //Guardo el resultado de la consulta anterior
+        $rol=mysqli_fetch_row($registro2);
+        $rol_empleado=$rol[0];
     ?>
     <!--Cabecera-->
     <div class="cabecera">
@@ -45,6 +53,15 @@
             <!--Para las distintas clases de la lista, he utilizado BEM que es una metodología de nomenclatura
             para definir las clases de forma más ordenada para así no perderme a la hora de realizar el html y el css, ya que es 
             bastante largo-->
+            <?php if ($rol_empleado == 'admin') { ?>
+                <li class="list__item">
+                    <div class="list__button">
+                        <img src="img/empleados.svg" class="list__img">
+                        <a href="pages/empleados.php" target="seccion_iframe" class="nav__link">Empleados</a>
+                    </div>
+                </li>
+            <?php } ?>
+
             <li class="list__item">
                 <div class="list__button">
                     <img src="img/articulos.svg" class="list__img">
