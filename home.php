@@ -99,6 +99,13 @@
 
             <li class="list__item">
                 <div class="list__button">
+                    <img src="img/download2.svg" class="list__img">
+                    <a href="pages/suministro.php" target="seccion_iframe" class="nav__link">Suministro</a>
+                </div>
+            </li>
+
+            <li class="list__item">
+                <div class="list__button">
                     <img src="img/notification.svg" class="list__img">
                     <a href="pages/avisos.php" target="seccion_iframe" class="nav__link">Avisos</a>
                 </div>
