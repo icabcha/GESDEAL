@@ -60,6 +60,6 @@
     <!--Incluimos los datos como un atributo data-*-->
     <div id="datos" data='<?php echo $datos_json; ?>'></div>
 
-    <a href="./form_añadir.php?type=proveedor"><button class="button">Añadir proveedor +</button></a>
+    <a href="./operaciones/form_añadir.php?type=proveedor"><button class="button">Añadir proveedor +</button></a>
 </body>
 </html>

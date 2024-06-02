@@ -59,6 +59,6 @@
     <!--Incluimos los datos como un atributo data-*-->
     <div id="datos" data='<?php echo $datos_json; ?>'></div>
 
-    <a href="./form_añadir.php?type=pedido"><button class="button">Añadir pedido +</button></a>
+    <a href="./operaciones/form_añadir.php?type=pedido"><button class="button">Añadir pedido +</button></a>
 </body>
 </html>
