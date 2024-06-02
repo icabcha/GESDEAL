@@ -72,6 +72,11 @@ td{
     background-color: #006022;
 }
 
+.paginacion-boton.active {
+    background-color: #006022;
+    color: white;
+}
+
 .button{
     display: inline-block;
     border-radius: 4px;
