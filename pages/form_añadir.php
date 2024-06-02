@@ -10,6 +10,13 @@
 </head>
 <body>
     <?php
+        require '../functions.php';
+        //Iniciamos una sesión
+        session_start();
+
+        comprobarInicioSesion();
+        $conexion = conexionBD();
+
         $type = $_GET['type'];
 
         $title = '';
@@ -53,6 +60,29 @@
                     <input type="number" id="cp" name="cp" required><br>
                 ';
                 break;
+                case 'pedido':
+                    $title = 'Añadir Nuevo Pedido';
+                    //Creamos la sentencia SQL de consulta y ejecutarla
+                    $consultar1 = "SELECT CLICOD FROM CLIENTES";
+                    $registros1 = mysqli_query($conexion, $consultar1);
+
+                    $consultar2 = "SELECT EMPCOD FROM EMPLEADOS";
+                    $registros2 = mysqli_query($conexion, $consultar2);
+
+                    $fields = '
+                    <label for="seleccionar1">Código de cliente: </label><br>
+                    <select name="seleccionar1" id="seleccionar1">';
+                    while ($registro1 = mysqli_fetch_row($registros1)) {
+                        $fields .= "<option value='$registro1[0]'>" . $registro1[0] . "</option>";
+                    }
+                    $fields .= '</select><br>
+                    <label for="seleccionar2">Código de empleado: </label><br>
+                    <select name="seleccionar2" id="seleccionar2">';
+                    while ($registro2 = mysqli_fetch_row($registros2)) {
+                        $fields .= "<option value='$registro2[0]'>" . $registro2[0] . "</option>";
+                    }
+                    $fields .= '</select><br>';
+                    break;
             default:
                 echo 'Tipo no válido.';
                 exit();
@@ -65,17 +95,16 @@
             <?php echo $fields; ?>
             <input type="submit" value="Añadir <?php echo $type; ?>">
         </form>
+        <!-- Botón para volver a los listados -->
+        <?php if ($type == 'proveedor'){ ?>
+            <a href="./proveedores.php"><button>Volver atrás</button></a>
+        <?php }else{ ?>
+            <a href="./<?php echo $type; ?>s.php"><button>Volver atrás</button></a>
+        <?php } ?>
     </div>
     
     <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            require '../functions.php';
-            //Iniciamos una sesión
-            session_start();
-
-            comprobarInicioSesion();
-            $conexion = conexionBD();
-            
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {    
             switch ($type) {
                 case 'articulo':
                     // Consulta para obtener el último código de artículo
@@ -141,6 +170,26 @@
                     $telefono = mysqli_real_escape_string($conexion, $_POST['telefono']);
                     $cp = mysqli_real_escape_string($conexion, $_POST['cp']);
                     $insertar = "INSERT INTO CLIENTES (CLICOD, CLIDNI, CLINOM, CLITEL, CLICP) VALUES ('$nuevo_codigo', '$dni', UPPER('$nombre'), '$telefono', '$cp')";
+                    break;
+                case 'pedido':
+                    // Consulta para obtener el último código de pedido
+                    $query = "SELECT PEDCOD FROM PEDIDOS ORDER BY PEDCOD DESC LIMIT 1";
+                    $result = mysqli_query($conexion, $query);
+                    $row = mysqli_fetch_assoc($result);
+                    $ultimo_codigo = $row['PEDCOD'];
+
+                    // Extraer la parte numérica del código
+                    $ultimo_numero = (int)substr($ultimo_codigo, 3);
+
+                    // Incrementar el número
+                    $nuevo_numero = $ultimo_numero + 1;
+
+                    // Generar el nuevo código formateado con dos dígitos
+                    $nuevo_codigo = 'PE-' . str_pad($nuevo_numero, 2, '0', STR_PAD_LEFT);
+
+                    $clicod = mysqli_real_escape_string($conexion, $_POST['seleccionar1']);
+                    $empcod = mysqli_real_escape_string($conexion, $_POST['seleccionar2']);
+                    $insertar = "INSERT INTO PEDIDOS (PEDCOD, PEDFEC, CLICOD, EMPCOD) VALUES ('$nuevo_codigo', NOW(),'$clicod', '$empcod')";
                     break;
             }
 
