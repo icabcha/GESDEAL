@@ -20,9 +20,7 @@
         $crear="CREATE DATABASE IF NOT EXISTS GESDEAL";
         $creada=mysqli_query($conexion,$crear);
 
-        if($creada){
-            echo "La base de datos GESDEAL se ha creado correctamente <br>";
-        }else{
+        if(!$creada){
             echo "La base de datos GESDEAL no se ha creado <br>";
         }
 
@@ -39,9 +37,7 @@
         FROM ARTICULOS A
 	    ORDER BY RAND() LIMIT 1";
         
-        if(mysqli_query($conexion, $trigger1)){
-            echo "Se ha ejecutado correctamente el primer trigger. <br>";
-        }else{
+        if(!mysqli_query($conexion, $trigger1)){
             echo "Error ejecutando el primer trigger. <br>"; 
         }
 
@@ -55,12 +51,9 @@
         FROM PROVEEDORES P
         ORDER BY RAND() LIMIT 1";
         
-        if(mysqli_query($conexion, $trigger2)){
-            echo "Se ha ejecutado correctamente el segundo trigger. <br>";
-        }else{
-            echo "Error ejecutando el segundo trigger. <br>"; 
+        if(!mysqli_query($conexion, $trigger2)){
+            echo "Error ejecutando el segundo trigger. <br>";
         }
-
 
         //Creamos la sentencia SQL del trigger y la ejecutamos
         //Este trigger actualizará el precio de compra de un artículo en la tabla suministrar cuando se actualice el precio de venta 
@@ -72,10 +65,8 @@
         SET PRECIOCOMPRA=(NEW.ARTPREVEN)/1.3
         WHERE ARTCOD LIKE OLD.ARTCOD";
         
-        if(mysqli_query($conexion, $trigger3)){
-            echo "Se ha ejecutado correctamente el tercer trigger. <br>";
-        }else{
-            echo "Error ejecutando el tercer trigger. <br>"; 
+        if(!mysqli_query($conexion, $trigger3)){
+            echo "Error ejecutando el tercer trigger. <br>";
         }
 
         //Creamos la sentencia SQL del trigger y la ejecutamos
@@ -91,9 +82,7 @@
         ORDER BY RAND() LIMIT 1;
         END IF";
         
-        if(mysqli_query($conexion, $trigger4)){
-            echo "Se ha ejecutado correctamente el cuarto trigger. <br>";
-        }else{
+        if(!mysqli_query($conexion, $trigger4)){
             echo "Error ejecutando el cuarto trigger. <br>"; 
         }
 
@@ -111,12 +100,9 @@
                         FROM LINEADEDETALLE
                         WHERE PEDCOD LIKE NEW.PEDCOD)";
         
-        if(mysqli_query($conexion, $trigger5)){
-            echo "Se ha ejecutado correctamente el quinto trigger. <br>";
-        }else{
+        if(!mysqli_query($conexion, $trigger5)){
             echo "Error ejecutando el quinto trigger. <br>"; 
         }
-
     ?>
 </body>
 </html>
