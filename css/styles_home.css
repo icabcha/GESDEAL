@@ -129,3 +129,11 @@ iframe{
     width: 70%;
     margin: 0 auto;
 }
+
+/*Estilo del los enlaces del menú de navegación*/
+.nav__link{
+    color: black;
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+}
