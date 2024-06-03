@@ -31,6 +31,10 @@ td{
     background-color: #008037;
 }
 
+#col3{
+    background-color: rgb(215, 100, 100);
+}
+
 /*Estilo de cada columna de la tablas de la página Linea de detalle*/
 .ldd--col{
     width: 33%;
@@ -93,12 +97,13 @@ td{
     margin-right: auto;
 }
 
-/*Estilo del contenedor del formulario */
+/*Estilo del contenedor de la imagen y el formulario */
 #contenido{
-    display: block;
-    align-items: center;
-    justify-content: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
     width: 40%;
+    flex-direction: row;
 }
 
 /*Estilo del formulario*/
@@ -106,8 +111,8 @@ form{
     background-color: white;
     border: 2px solid #008037;
     border-radius: 4px;
-    padding: 20px;  
-    width: 50%;
+    padding: 10px 20px;  
+    width: 30%;
 }
 
 /*Estilo de las etiquetas del formulario*/
@@ -117,11 +122,31 @@ label{
     font-weight: bold;
 }
 
-input{
-    width: 70%;
+/* Estilo de los campos de entrada del formulario*/
+input, select{
+    width: 99%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #CCCCCC;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+/* Estilo del botón del formulario*/
+input[type="submit"] {
+    width: 100%;
+    background-color: #008037;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #006022;
+}
+
+::-webkit-scrollbar{
+    display: none;
 }
