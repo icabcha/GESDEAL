@@ -24,64 +24,106 @@
 
         switch ($type) {
             case 'articulo':
-                $title = 'Añadir Nuevo Artículo';
+                $title = 'Nuevo Artículo';
                 $fields = '
-                    <label for="nombre">Nombre:</label><br>
-                    <input type="text" id="nombre" name="nombre" required><br>
-                    <label for="cantidad">Cantidad:</label><br>
-                    <input type="number" id="cantidad" name="cantidad" required><br>
-                    <label for="precio">Precio de Venta (€):</label><br>
-                    <input type="number" step="0.01" id="precio" name="precio" required><br>
+                    <table class="tabla_añadir">
+                        <tr>
+                            <td><label for="nombre">Nombre:</label></td>
+                            <td><input type="text" id="nombre" name="nombre" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="cantidad">Cantidad:</label></td>
+                            <td><input type="number" id="cantidad" name="cantidad" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="precio">Precio de Venta (€):</label></td>
+                            <td><input type="number" step="0.01" id="precio" name="precio" required></td>
+                        </tr>
+                    </table>
                 ';
             break;
             case 'proveedor':
-                $title = 'Añadir Nuevo Proveedor';
+                $title = 'Nuevo Proveedor';
                 $fields = '
-                    <label for="nif">NIF:</label><br>
-                    <input type="text" id="nif" name="nif" required><br>
-                    <label for="nombre">Nombre:</label><br>
-                    <input type="text" id="nombre" name="nombre" required><br>
-                    <label for="direccion">Dirección:</label><br>
-                    <input type="text" id="direccion" name="direccion" value="C/" required><br>
-                    <label for="telefono">Teléfono:</label><br>
-                    <input type="tel" id="telefono" name="telefono" required><br>
+                    <table class="tabla_añadir">
+                        <tr>
+                            <td><label for="nif">NIF:</label></td>
+                            <td><input type="text" id="nif" name="nif" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="nombre">Nombre:</label></td>
+                            <td><input type="text" id="nombre" name="nombre" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="direccion">Dirección:</label></td>
+                            <td><input type="text" id="direccion" name="direccion" value="C/" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="telefono">Teléfono:</label></td>
+                            <td><input type="tel" id="telefono" name="telefono" required></td>
+                        </tr>
+                    </table>
                 ';
             break;
             case 'cliente':
-                $title = 'Añadir Nuevo Cliente';
+                $title = 'Nuevo Cliente';
                 $fields = '
-                    <label for="dni">DNI:</label><br>
-                    <input type="text" id="dni" name="dni" required><br>    
-                    <label for="nombre">Nombre:</label><br>
-                    <input type="text" id="nombre" name="nombre" required><br>
-                    <label for="telefono">Teléfono:</label><br>
-                    <input type="tel" id="telefono" name="telefono" required><br>
-                    <label for="cp">Código Postal:</label><br>
-                    <input type="number" id="cp" name="cp" required><br>
+                    <table class="tabla_añadir">
+                        <tr>
+                            <td><label for="dni">DNI:</label></td>
+                            <td><input type="text" id="dni" name="dni" required> </td>
+                        </tr>
+                        <tr>
+                            <td><label for="nombre">Nombre:</label></td>
+                            <td><input type="text" id="nombre" name="nombre" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="telefono">Teléfono:</label></td>
+                            <td><input type="tel" id="telefono" name="telefono" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="cp">Código Postal:</label></td>
+                            <td><input type="number" id="cp" name="cp" required></td>
+                        </tr>
+                    </table>
                 ';
             break;
             case 'empleado':
-                $title = 'Añadir Nuevo Empleado';
+                $title = 'Nuevo Empleado';
                 $fields = '
-                    <label for="dni">DNI:</label><br>
-                    <input type="text" id="dni" name="dni" required><br>    
-                    <label for="nombre">Nombre:</label><br>
-                    <input type="text" id="nombre" name="nombre" required><br>
-                    <label for="telefono">Teléfono:</label><br>
-                    <input type="tel" id="telefono" name="telefono" required><br>
-                    <label for="sueldo">Sueldo:</label><br>
-                    <input type="number" id="sueldo" name="sueldo" required><br>
-                    <label for="contraseña">Contraseña:</label><br>
-                    <input type="text" id="contraseña" name="contraseña" required><br>
-                    <label for="rol">Rol: </label><br>
-                    <select name="rol" id="rol">
-                        <option value="admin">ADMIN</option>
-                        <option value="user">USER</option>
-                    </select>
+                    <table class="tabla_añadir">
+                        <tr>
+                            <td><label for="dni">DNI:</label></td>
+                            <td><input type="text" id="dni" name="dni" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="nombre">Nombre:</label></td>
+                            <td><input type="text" id="nombre" name="nombre" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="telefono">Teléfono:</label></td>
+                            <td><input type="tel" id="telefono" name="telefono" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="sueldo">Sueldo:</label></td>
+                            <td><input type="number" id="sueldo" name="sueldo" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="contraseña">Contraseña:</label></td>
+                            <td><input type="text" id="contraseña" name="contraseña" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="rol">Rol: </label></td>
+                            <td><select name="rol" id="rol">
+                            <option value="admin">ADMIN</option>
+                            <option value="user">USER</option>
+                        </select></td>
+                        </tr>
+                    </table>
                 ';
             break;
             case 'pedido':
-                $title = 'Añadir Nuevo Pedido';
+                $title = 'Nuevo Pedido';
                 //Creamos las sentencias SQL de consultas y las ejecutamos
                 $consultar1 = "SELECT CLICOD FROM CLIENTES";
                 $registros1 = mysqli_query($conexion, $consultar1);
@@ -90,18 +132,29 @@
                 $registros2 = mysqli_query($conexion, $consultar2);
 
                 $fields = '
-                <label for="seleccionar1">Código de cliente: </label><br>
-                <select name="seleccionar1" id="seleccionar1">';
-                while ($registro1 = mysqli_fetch_row($registros1)) {
-                    $fields .= "<option value='$registro1[0]'>" . $registro1[0] . "</option>";
-                }
-                $fields .= '</select><br>
-                <label for="seleccionar2">Código de empleado: </label><br>
-                <select name="seleccionar2" id="seleccionar2">';
-                while ($registro2 = mysqli_fetch_row($registros2)) {
-                    $fields .= "<option value='$registro2[0]'>" . $registro2[0] . "</option>";
-                }
-                $fields .= '</select><br>';
+                    <table class="tabla_añadir">
+                        <tr>
+                            <td class="label"><label for="seleccionar1">Código de cliente: </label></td>
+                            <td>
+                            <select name="seleccionar1" id="seleccionar1">';
+                                while ($registro1 = mysqli_fetch_row($registros1)) {
+                                    $fields .= "<option value='$registro1[0]'>" . $registro1[0] . "</option>";
+                                }
+                                $fields .= '</select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label for="seleccionar2">Código de empleado: </label></td>
+                            <td>
+                            <select name="seleccionar2" id="seleccionar2">';
+                                while ($registro2 = mysqli_fetch_row($registros2)) {
+                                $fields .= "<option value='$registro2[0]'>" . $registro2[0] . "</option>";
+                                }
+                            $fields .= '</select>
+                            </td>
+                        </tr>
+                    </table>
+                ';
             break;
             default:
                 echo 'Tipo no válido.';
@@ -110,16 +163,16 @@
     ?>
 
     <h1><?php echo $title; ?></h1>
-    <div id="contenido"></div>
+    <div id="contenido">
         <form action="form_añadir.php?type=<?php echo $type; ?>" method="POST">
             <?php echo $fields; ?>
             <input type="submit" value="Añadir <?php echo $type; ?>">
         </form>
         <!-- Botón para volver a los listados -->
         <?php if ($type == 'proveedor'){ ?>
-            <a href="../proveedores.php"><button class="button">Volver atrás</button></a>
+            <a href="../proveedores.php"><button class="button_añadir">Volver atrás</button></a>
         <?php }else{ ?>
-            <a href="../<?php echo $type; ?>s.php"><button class="button">Volver atrás</button></a>
+            <a href="../<?php echo $type; ?>s.php"><button class="button_añadir">Volver atrás</button></a>
         <?php } ?>
     </div>
     
