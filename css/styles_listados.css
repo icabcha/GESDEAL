@@ -35,6 +35,10 @@ td{
     background-color: rgb(215, 100, 100);
 }
 
+.tabla_añadir, .tabla_añadir td{
+    border: none;
+}
+
 /*Estilo de cada columna de la tablas de la página Linea de detalle*/
 .ldd--col{
     width: 33%;
@@ -97,13 +101,13 @@ td{
     margin-right: auto;
 }
 
-/*Estilo del contenedor de la imagen y el formulario */
 #contenido{
     display: flex;
     align-items: flex-start;
     justify-content: space-evenly;
-    width: 40%;
+    width: 100%;
     flex-direction: row;
+    margin-left: 15%;
 }
 
 /*Estilo del formulario*/
@@ -145,6 +149,21 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #006022;
+}
+
+.button_añadir{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #008037;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    padding: 14px 20px;
+    cursor: pointer;
+    margin-top: 430px;
+    margin-left: 100px;
+    margin-right: auto;
 }
 
 ::-webkit-scrollbar{
