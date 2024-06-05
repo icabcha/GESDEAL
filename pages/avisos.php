@@ -9,34 +9,39 @@
     <title>GESDEAL - Avisos</title>
 </head>
 <body>
+    <!--Título principal de la página-->
     <h1>Avisos - Poco Stock</h1>
+
     <?php
+        //Incluimos el archivo de funciones
         require '../functions.php';
-        // Iniciamos una sesión
+        //Iniciamos una sesión
         session_start();
 
+        //Verificamos si la sesión es válida
         comprobarInicioSesion();
+        //Establecemos la conexión a la base de datos
         $conexion = conexionBD();
 
-        // Creamos la sentencia SQL de consulta y la ejecutamos
+        //Creamos la sentencia SQL de consulta y la ejecutamos
         $leer = "SELECT ARTCOD, ARTNOM, ARTCANT FROM ARTICULOS WHERE ARTCANT <= 25";
         $registros = mysqli_query($conexion, $leer);
 
-        // Convertir los datos PHP en un array
+        //Almacenamos los resultados de la consulta anterior en un array
         $articulos = array();
         while($articulo = mysqli_fetch_assoc($registros)){
             $articulos[] = $articulo;
         }
 
-        // Cerramos la conexión
+        //Cerramos la conexión
         mysqli_close($conexion);
     ?>
 
-    <!-- Convertir los datos PHP a JSON y asignarlos a un atributo data -->
-    <div id="datos" data='<?php echo json_encode($articulos); ?>' style="display: none;"></div>
+    <!--Convertimos los datos PHP a JSON y los asignamos a un atributo data para poder utilizarlos fácilmente en JavaScript-->
+    <div id="datos" data='<?php echo json_encode($articulos); ?>'></div>
 
-    <!-- La tabla de datos -->
     <table id="tabla">
+        <!--Encabezado de la tabla-->
         <thead>
             <tr id="fila1">
                 <td>Código del artículo</td>
@@ -46,7 +51,7 @@
         </thead>
         <tbody>
             <?php
-                // Mostrar los datos PHP en la tabla
+                //Mostramos los datos en la tabla
                 foreach($articulos as $articulo) {
                     echo '<tr>';
                     echo '<td>' . $articulo['ARTCOD'] . '</td>';

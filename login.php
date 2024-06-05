@@ -12,33 +12,42 @@
 </head>
 <body onload="ponerFoco()">
     <?php
+        //Definimos las variables para la conexión a la base de datos
         $host = "localhost";
         $usuario = "root";
         $pass = "";
 
+        //Establecemos la conexión a la base de datos
         $conexion = mysqli_connect($host, $usuario, $pass) or die("Error de conexión");
 
+        //Comprobamos si existe la base de datos GESDEAL
         $existe_bd = mysqli_query($conexion, "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'GESDEAL'");;
 
-        //mysqli_num_rows($existe_bd) == 0 verifica si la consulta SQL no devuelve ningún resultado
+        //Con mysqli_num_rows($existe_bd) == 0 verificamos si la consulta SQL anterior no devuelve ningún resultado
+        //Si no existe la base de datos, la creamos y la seleccionamos
         if (!$existe_bd || mysqli_num_rows($existe_bd) == 0) {
             require 'sql/crear_bd.php';
             require 'sql/triggers.php';
             mysqli_select_db($conexion, "GESDEAL") or die("Error seleccionando la base de datos después de crearla");
         } else {
-            //Seleccionar la base de datos
+            //Si existe la base de datos, la seleccionamos
             mysqli_select_db($conexion, "GESDEAL") or die("Error seleccionando la base de datos");
         }
 
+        //Si se ha enviado el formulario de login, se inicia una sesión
         if (isset($_POST['submit'])) {
             session_start();
 
+            //Guardamos en variables los datos del formulario
             $dni = $_REQUEST['dni'];
             $password = $_REQUEST['contraseña'];
 
+            //Guardamos el dni en la variable de sesión
             $_SESSION["dni"] = $dni;
+            //Iniciamos una variable 'encontrado' a FALSE
             $encontrado = FALSE;
 
+            //Comprobamos las credenciales en la tabla EMPLEADOS
             $comprobar = "SELECT EMPDNI, EMPCON FROM EMPLEADOS";
             $registro1 = mysqli_query($conexion, $comprobar);
 

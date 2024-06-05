@@ -17,9 +17,11 @@
         //Establecemos la conexión con MySQL
         $conexion=mysqli_connect($host,$usuario,$pass) or die("Error de conexión");
 
+        //Creamos la base de datos GESDEAL si no existe
         $crear="CREATE DATABASE IF NOT EXISTS GESDEAL";
         $creada=mysqli_query($conexion,$crear);
 
+        //Comprobamos si la base de datos está creada
         if(!$creada){
             echo "La base de datos GESDEAL no se ha creado <br>";
         }
@@ -189,7 +191,6 @@
         ('PE-02', 'AR-11', 1),
         ('PE-03', 'AR-07', 2)";
         mysqli_query($conexion, $insertar7) or die("Error insertando datos en la tabla línea de detalle");
-
     ?>
 </body>
 </html>

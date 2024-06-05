@@ -10,21 +10,29 @@
 </head>
 <body>
     <?php
+        //Incluimos el archivo de funciones
         require '../../functions.php';
         //Iniciamos una sesión
         session_start();
 
+        //Verificamos si la sesión es válida
         comprobarInicioSesion();
+        //Establecemos la conexión a la base de datos
         $conexion = conexionBD();
 
+        //Guardamos el parámetro 'type' pasado por GET en la variable con el mismo nombre
         $type = $_GET['type'];
 
+        //Inicializamos las variables para el título y los campos del formulario
         $title = '';
         $fields = '';
 
+        //Según el parámetro 'type' tendremos un formulario u otro
         switch ($type) {
+            //Formulario para añadir un nuevo artículo
             case 'articulo':
                 $title = 'Nuevo Artículo';
+                //Campos para el formulario de nuevo artículo
                 $fields = '
                     <table class="tabla_añadir">
                         <tr>
@@ -42,8 +50,10 @@
                     </table>
                 ';
             break;
+            //Formulario para añadir un nuevo proveedor
             case 'proveedor':
                 $title = 'Nuevo Proveedor';
+                //Campos para el formulario de nuevo proveedor
                 $fields = '
                     <table class="tabla_añadir">
                         <tr>
@@ -65,8 +75,10 @@
                     </table>
                 ';
             break;
+            //Formulario para añadir un nuevo cliente
             case 'cliente':
                 $title = 'Nuevo Cliente';
+                //Campos para el formulario de nuevo cliente
                 $fields = '
                     <table class="tabla_añadir">
                         <tr>
@@ -88,8 +100,10 @@
                     </table>
                 ';
             break;
+            //Formulario para añadir un nuevo empleado
             case 'empleado':
                 $title = 'Nuevo Empleado';
+                //Campos para el formulario de nuevo empleado
                 $fields = '
                     <table class="tabla_añadir">
                         <tr>
@@ -122,6 +136,7 @@
                     </table>
                 ';
             break;
+            //Formulario para añadir un nuevo pedido
             case 'pedido':
                 $title = 'Nuevo Pedido';
                 //Creamos las sentencias SQL de consultas y las ejecutamos
@@ -131,6 +146,7 @@
                 $consultar2 = "SELECT EMPCOD FROM EMPLEADOS";
                 $registros2 = mysqli_query($conexion, $consultar2);
 
+                //Campos para el formulario de nuevo pedido
                 $fields = '
                     <table class="tabla_añadir">
                         <tr>
@@ -157,18 +173,24 @@
                 ';
             break;
             default:
+                //Si la variable 'type' tiene otro valor se mostrará el siguiente mensaje
                 echo 'Tipo no válido.';
                 exit();
         }
     ?>
 
+    <!--Título de la página del formulario-->
     <h1><?php echo $title; ?></h1>
+
     <div id="contenido">
+         <!--Formulario para añadir un nuevo elemento-->
         <form action="form_añadir.php?type=<?php echo $type; ?>" method="POST">
             <?php echo $fields; ?>
+            <!--Botón para enviar el formulario-->
             <input type="submit" value="Añadir <?php echo $type; ?>">
         </form>
-        <!-- Botón para volver a los listados -->
+
+        <!--Botón para volver a los listados-->
         <?php if ($type == 'proveedor'){ ?>
             <a href="../proveedores.php"><button class="button_añadir">Volver atrás</button></a>
         <?php }else{ ?>
@@ -177,7 +199,9 @@
     </div>
     
     <?php
+        //Se ejecutará lo que está dentro del if si enviamos el formulario de adición de elementos
         if ($_SERVER["REQUEST_METHOD"] == "POST") {    
+            //Según el parámetro 'type' se ejecutará una sentencia SQL u otra
             switch ($type) {
                 case 'articulo':
                     //Consulta para obtener el último código de artículo
@@ -195,9 +219,11 @@
                     //Generaramos el nuevo código formateado con dos dígitos
                     $nuevo_codigo = 'AR-' . str_pad($nuevo_numero, 2, '0', STR_PAD_LEFT);
 
+                    //Guardamos en variables lo que el usuario ha enviado en el formulario obviando los caracteres especiales
                     $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
                     $cantidad = mysqli_real_escape_string($conexion, $_POST['cantidad']);
                     $precio = mysqli_real_escape_string($conexion, $_POST['precio']);
+                    //Creamos la sentencia SQL de inserción
                     $insertar = "INSERT INTO ARTICULOS (ARTCOD, ARTNOM, ARTCANT, ARTPREVEN) VALUES ('$nuevo_codigo', UPPER('$nombre'), '$cantidad', '$precio')";
                 break;
                 case 'proveedor':
@@ -216,10 +242,12 @@
                     //Generamos el nuevo código formateado con dos dígitos
                     $nuevo_codigo = 'PR-' . str_pad($nuevo_numero, 2, '0', STR_PAD_LEFT);
 
+                    //Guardamos en variables lo que el usuario ha enviado en el formulario obviando los caracteres especiales
                     $nif = mysqli_real_escape_string($conexion, $_POST['nif']);
                     $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
                     $direccion = mysqli_real_escape_string($conexion, $_POST['direccion']);
                     $telefono = mysqli_real_escape_string($conexion, $_POST['telefono']);
+                    //Creamos la sentencia SQL de inserción
                     $insertar = "INSERT INTO PROVEEDORES (PROCOD, PRONIF, PRONOM, PRODIR, PROTEL) VALUES ('$nuevo_codigo', '$nif', UPPER('$nombre'), UPPER('$direccion'), '$telefono')";
                 break;
                 case 'cliente':
@@ -238,10 +266,12 @@
                     //Generamos el nuevo código formateado con dos dígitos
                     $nuevo_codigo = 'CL-' . str_pad($nuevo_numero, 2, '0', STR_PAD_LEFT);
 
+                    //Guardamos en variables lo que el usuario ha enviado en el formulario obviando los caracteres especiales
                     $dni = mysqli_real_escape_string($conexion, $_POST['dni']);
                     $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
                     $telefono = mysqli_real_escape_string($conexion, $_POST['telefono']);
                     $cp = mysqli_real_escape_string($conexion, $_POST['cp']);
+                    //Creamos la sentencia SQL de inserción
                     $insertar = "INSERT INTO CLIENTES (CLICOD, CLIDNI, CLINOM, CLITEL, CLICP) VALUES ('$nuevo_codigo', '$dni', UPPER('$nombre'), '$telefono', '$cp')";
                 break;
                 case 'empleado':
@@ -260,12 +290,14 @@
                     //Generamos el nuevo código formateado con dos dígitos
                     $nuevo_codigo = 'EM-' . str_pad($nuevo_numero, 2, '0', STR_PAD_LEFT);
 
+                    //Guardamos en variables lo que el usuario ha enviado en el formulario obviando los caracteres especiales
                     $dni = mysqli_real_escape_string($conexion, $_POST['dni']);
                     $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
                     $telefono = mysqli_real_escape_string($conexion, $_POST['telefono']);
                     $sueldo = mysqli_real_escape_string($conexion, $_POST['sueldo']);
                     $contraseña = mysqli_real_escape_string($conexion, $_POST['contraseña']);
                     $rol = mysqli_real_escape_string($conexion, $_POST['rol']);
+                    //Creamos la sentencia SQL de inserción
                     $insertar = "INSERT INTO EMPLEADOS (EMPCOD, EMPDNI, EMPNOM, EMPTEL, EMPSUE, EMPCON, EMPROL) VALUES ('$nuevo_codigo', '$dni', UPPER('$nombre'), '$telefono', '$sueldo', '$contraseña', '$rol')";
                 break;
                 case 'pedido':
@@ -284,18 +316,15 @@
                     //Generamos el nuevo código formateado con dos dígitos
                     $nuevo_codigo = 'PE-' . str_pad($nuevo_numero, 2, '0', STR_PAD_LEFT);
 
+                    //Guardamos en variables lo que el usuario ha enviado en el formulario obviando los caracteres especiales
                     $clicod = mysqli_real_escape_string($conexion, $_POST['seleccionar1']);
                     $empcod = mysqli_real_escape_string($conexion, $_POST['seleccionar2']);
+                    //Creamos la sentencia SQL de inserción
                     $insertar = "INSERT INTO PEDIDOS (PEDCOD, PEDFEC, CLICOD, EMPCOD) VALUES ('$nuevo_codigo', NOW(),'$clicod', '$empcod')";
                 break;
             }
 
-            if (mysqli_query($conexion, $insertar)) {
-                echo "Nuevo $type añadido con éxito.";
-            } else {
-                echo "Error: " . $insertar . "<br>" . mysqli_error($conexion);
-            }
-
+            //Cerramos la conexión
             mysqli_close($conexion);
 
             //Redirigimos de vuelta a la lista correspondiente

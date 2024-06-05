@@ -9,13 +9,18 @@
     <title>GESDEAL</title>
 </head>
 <body>
+    <!--Título principal de la página-->
     <h1>Línea de detalle</h1>
+
     <?php
+        //Incluimos el archivo de funciones
         require '../functions.php';
         //Iniciamos una sesión
         session_start();
 
+        //Verificamos si la sesión es válida
         comprobarInicioSesion();
+        //Establecemos la conexión a la base de datos
         $conexion = conexionBD();
         
         //Declaramos una variable llamada $valor vacía

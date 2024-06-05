@@ -10,11 +10,14 @@
 </head>
 <body>
     <?php
+        //Incluimos el archivo de funciones
         require './functions.php';
         //Iniciamos una sesión
         session_start();
 
+        //Verificamos si la sesión es válida
         comprobarInicioSesion();
+        //Establecemos la conexión a la base de datos
         $conexion = conexionBD();
 
         //Guardamos en la variable $dni el contenido de la variable de sesión $_SESSION["dni"]
@@ -24,7 +27,7 @@
         $consultar = "SELECT EMPNOM FROM EMPLEADOS WHERE EMPDNI = '$dni'";
         $registro=mysqli_query($conexion,$consultar);
         
-        //Guardo el resultado de la consulta anterior
+        //Guardamos el resultado de la consulta anterior
         $nombre=mysqli_fetch_row($registro);
         $nombre_empleado=$nombre[0];
 
@@ -32,17 +35,18 @@
         $consultar2 = "SELECT EMPROL FROM EMPLEADOS WHERE EMPDNI = '$dni'";
         $registro2=mysqli_query($conexion,$consultar2);
 
-        //Guardo el resultado de la consulta anterior
+        //Guardamos el resultado de la consulta anterior
         $rol=mysqli_fetch_row($registro2);
         $rol_empleado=$rol[0];
     ?>
-    <!--Cabecera-->
+
+    <!--Cabecera de la página-->
     <div class="cabecera">
-        <!-- Enlace para ir al inicio -->
+        <!--Enlace para ir al inicio-->
         <a href="home.php">Inicio <img src="img/home.png" alt="home"></a>
-        <!-- Enlace al perfil del usuario -->
+        <!--Enlace al perfil del usuario-->
         <a href="pages/perfil.php" target="seccion_iframe">Mi Perfil <img src="img/user.png" alt="user"></a>
-        <!-- Enlace para hacer Log out -->
+        <!--Enlace para hacer log out-->
         <a href="logout.php">Cerrar sesión <img src="img/exit.png" alt="exit"></a>
     </div>
 
@@ -53,6 +57,8 @@
             <!--Para las distintas clases de la lista, he utilizado BEM que es una metodología de nomenclatura
             para definir las clases de forma más ordenada para así no perderme a la hora de realizar el html y el css, ya que es 
             bastante largo-->
+
+            <!--Condicional para mostrar el enlace de empleados solo si el rol del empleado es 'admin'-->
             <?php if ($rol_empleado == 'admin') { ?>
                 <li class="list__item">
                     <div class="list__button">
@@ -62,6 +68,7 @@
                 </li>
             <?php } ?>
 
+            <!--Enlace al listado de artículos-->
             <li class="list__item">
                 <div class="list__button">
                     <img src="img/articulos.svg" class="list__img">
@@ -69,6 +76,7 @@
                 </div>
             </li>
 
+            <!--Enlace al listado de proveedores-->
             <li class="list__item">
                 <div class="list__button">
                     <img src="img/proveedores.svg" class="list__img">
@@ -76,6 +84,7 @@
                 </div>
             </li>
 
+            <!--Enlace al listado de clientes-->
             <li class="list__item">
                 <div class="list__button">
                     <img src="img/clientes.svg" class="list__img">
@@ -83,6 +92,7 @@
                 </div>
             </li>
 
+            <!--Enlace al listado de pedidos-->
             <li class="list__item">
                 <div class="list__button">
                     <img src="img/pedidos.svg" class="list__img"> 
@@ -90,13 +100,7 @@
                 </div>
             </li>
 
-            <li class="list__item">
-                <div class="list__button">
-                    <img src="img/lineadedetalle.svg" class="list__img">
-                    <a href="pages/lineadedetalle.php" target="seccion_iframe" class="nav__link">Línea de detalle</a>
-                </div>
-            </li>
-
+            <!--Enlace al listado de suministro de artículos-->
             <li class="list__item">
                 <div class="list__button">
                     <img src="img/download2.svg" class="list__img">
@@ -104,6 +108,15 @@
                 </div>
             </li>
 
+            <!--Enlace a la línea de detalle-->
+            <li class="list__item">
+                <div class="list__button">
+                    <img src="img/lineadedetalle.svg" class="list__img">
+                    <a href="pages/lineadedetalle.php" target="seccion_iframe" class="nav__link">Línea de detalle</a>
+                </div>
+            </li>
+
+            <!--Enlace al listado de avisos-->
             <li class="list__item">
                 <div class="list__button">
                     <img src="img/notification.svg" class="list__img">

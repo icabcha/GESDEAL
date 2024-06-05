@@ -11,11 +11,14 @@
 </head>
 <body>
     <?php
+        //Incluimos el archivo de funciones
         require '../functions.php';
         //Iniciamos una sesión
         session_start();
 
+        //Verificamos si la sesión es válida
         comprobarInicioSesion();
+        //Establecemos la conexión a la base de datos
         $conexion = conexionBD();
 
         //Guardamos en la variable $dni el contenido de la variable de sesión $_SESSION["dni"]
@@ -25,6 +28,7 @@
         $consultar = "SELECT * FROM EMPLEADOS WHERE EMPDNI = '$dni'";
         $registros=mysqli_query($conexion,$consultar);
 
+        //Guardamos los datos del usuario en variables
         while($registro=mysqli_fetch_row($registros)){
             $codigo = $registro[0];
             $dni = $registro[1];
@@ -35,13 +39,16 @@
         
     ?>
 
+    <!--Título principal de la página-->
     <h1>Gestión de mi perfil</h1>
 
     <div id="contenido">
+        <!--Contenedor de la imagen de perfil-->
         <div id="imagen">
             <img src="../img/user-profile.png" id="img-user" alt="user-profile">
         </div>
 
+        <!--Formulario para actualizar los datos del perfil de usuario-->
         <form action="perfil.php" method="POST">
             <label for="codigo">Código:</label>
             <input type="text" id="codigo" name="codigo" value="<?php echo $codigo; ?>" readonly><br>
@@ -84,10 +91,6 @@
                 //contiene el 'else'
                 if(mysqli_query($conexion,$actualizar)){
                     header('Location:welcome.php');
-                    ?>
-                        <img id="img_exito" src="img/tick.png" alt="exito">
-                        <p id="exito">Su perfil se ha guardado correctamente.</p>
-                    <?php
                 }else{
                     ?>
                     <img id="img_error" src="img/error.png" alt="error">

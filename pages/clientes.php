@@ -9,13 +9,18 @@
     <title>GESDEAL</title>
 </head>
 <body>
+    <!--Título principal de la página-->
     <h1>Listado de clientes</h1>
     
     <div id="contenedor_paginacion">
+        <!--Contenedor para la barra de búsqueda-->
+        <div id="contenedor_busqueda"><input type="text" id="barraBusqueda" placeholder="Buscar clientes..."></div>
+        <!--Contenedor para la paginación-->
         <div id="paginacion"></div>
     </div>
 
     <table id="tabla" data-type="CLIENTES" data-idField="CLICOD">
+        <!--Encabezado de la tabla-->
         <thead>
             <tr id="fila1">
                 <td>Código</td>
@@ -30,21 +35,26 @@
             <!--Las filas se irán añadiendo aquí con el código realizado en JavaScript en paginacion.js-->
         </tbody>
     </table>
-  
-    <script src="../js/paginacion.js"></script>
+
+    <!--Incluimos el archivo JavaScript con las funciones-->
+    <script src="../js/functions.js"></script>
 
     <?php
+        //Incluimos el archivo de funciones
         require '../functions.php';
         //Iniciamos una sesión
         session_start();
 
+        //Verificamos si la sesión es válida
         comprobarInicioSesion();
+        //Establecemos la conexión a la base de datos
         $conexion = conexionBD();
 
         //Creamos la sentencia SQL de consulta y la ejecutamos
         $leer = "SELECT * FROM CLIENTES";
         $registros = mysqli_query($conexion, $leer);
 
+        //Almacenamos los resultados de la consulta anterior en un array
         $clientes = array();
         while($registro = mysqli_fetch_assoc($registros)){
             $clientes[] = $registro;
@@ -57,9 +67,10 @@
         $datos_json = json_encode($clientes);
     ?>
 
-    <!--Incluimos los datos como un atributo data-*-->
+    <!--Incluimos los datos como un atributo data-* que permite que los datos sean fáciles de acceder y manipular mediante JavaScript-->
     <div id="datos" data='<?php echo $datos_json; ?>'></div>
 
+    <!--Incluimos un enlace para añadir un nuevo cliente-->
     <a href="./operaciones/form_añadir.php?type=cliente"><button class="button">Añadir cliente +</button></a>
 </body>
 </html>

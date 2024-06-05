@@ -10,11 +10,14 @@
 </head>
 <body>
     <?php
+        //Incluimos el archivo de funciones
         require '../functions.php';
         //Iniciamos una sesión
         session_start();
 
+        //Verificamos si la sesión es válida
         comprobarInicioSesion();
+        //Establecemos la conexión a la base de datos
         $conexion = conexionBD();
 
         //Guardamos en la variable $dni el contenido de la variable de sesión $_SESSION["dni"]
@@ -24,7 +27,7 @@
         $consultar = "SELECT EMPNOM FROM EMPLEADOS WHERE EMPDNI = '$dni'";
         $registro=mysqli_query($conexion,$consultar);
         
-        //Guardo el resultado de la consulta anterior
+        //Guardamos el resultado de la consulta anterior
         $nombre=mysqli_fetch_row($registro);
         $nombre_empleado=$nombre[0];
     ?>
