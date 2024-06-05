@@ -1,3 +1,4 @@
+//Función para alternar entre mostrar y ocultar una contraseña
 function togglePassword() {
     //Obtenemos la contraseña a partir del id
     var contraseña = document.getElementById("pass");
