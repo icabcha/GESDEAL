@@ -8,6 +8,7 @@ body{
     align-items: center;
 }
 
+/*Estilo del contenedor de la imagen de perfil*/
 #imagen{
     margin-right: 20px;
 }
@@ -36,15 +37,16 @@ h1, table{
 }
 
 /*Estilo del contenedor de la contraseña para manejar las imágenes correctamente*/
-.password-container {
+.password-container{
     position: relative;
     display: flex;
     align-items: center;
 }
 
-#pass {
+/*Estilo del input de la contraseña*/
+#pass{
     width: 100%;
-    padding-right: 30px; /* Espacio para la imagen */
+    padding-right: 30px;
 }
 
 /*Estilo de las imágenes de mostrar y ocultar contraseña*/
@@ -56,52 +58,7 @@ h1, table{
     padding-bottom: 12px;
 }
 
-/*Estilo de la imagen del mensaje de error*/
-#img_error{
-	float: left;
-	width: 2%;
-	padding: 20px;
-}
-
-/*Estilo mensaje de error*/
-#error{
-	background-color: rgb(215, 100, 100);
-	border: 1px solid black;
-    margin: 10px 0px;
-    padding:15px 10px 15px 50px;
-    background-position: 10px center;
-	text-align: left;
-	padding-left: 60px;
-    width:auto;
-}
-
-/*Estilo de la imagen del mensaje de éxito*/
-#img_exito{
-	float: left;
-	width: 2%;
-	padding: 20px;
-}
-
-/*Estilo de la imagen del mensaje de info*/
-#img_info{
-	float: left;
-	width: 2%;
-	padding: 38px 10px 0px 38px;
-}
-
-/*Estilo mensaje de éxito y mensaje de info*/
-#exito, #info{
-	background-color: white;
-	border: 1px solid #008037;
-    margin: 10px 0px;
-    padding:15px 10px 15px 50px;
-    background-position: 10px center;
-	text-align: left;
-	padding-left: 60px;
-    width:auto;
-}
-
-/*Estilo del contenedor de la imagen y el formulario */
+/*Estilo del contenedor de la imagen y el formulario*/
 #contenido{
     display: flex;
     align-items: flex-start;
@@ -126,6 +83,7 @@ label{
     font-weight: bold;
 }
 
+/*Estilo de los input del formulario*/
 input{
     width: 99%;
     padding: 10px;
@@ -135,6 +93,7 @@ input{
     box-sizing: border-box;
 }
 
+/*Estilo del botón de guardar los datos del formulario*/
 .button{
     width: 99%;
     background-color: #008037;
@@ -148,14 +107,17 @@ input{
     font-size: 16px;
 }
 
+/*Estilo cuando se pasa el cursor sobre el botón de guardar los datos del formulario*/
 .button:hover{
     background-color: #006022;
 }
 
+/*Estilo del input del código de empleado*/
 #codigo{
     background-color: #CCCCCC;
 }
 
-::-webkit-scrollbar {
+/*Estilo para ocultar la barra de desplazamiento*/
+::-webkit-scrollbar{
   display: none;
 }
