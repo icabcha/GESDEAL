@@ -324,6 +324,9 @@
                 break;
             }
 
+            //Ejecutamos la sentencia de insertar
+            mysqli_query($conexion, $insertar);
+
             //Cerramos la conexión
             mysqli_close($conexion);
 
