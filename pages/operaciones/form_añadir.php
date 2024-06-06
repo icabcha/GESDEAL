@@ -146,6 +146,9 @@
                 $consultar2 = "SELECT EMPCOD FROM EMPLEADOS";
                 $registros2 = mysqli_query($conexion, $consultar2);
 
+                $consultar3 = "SELECT ARTCOD FROM ARTICULOS";
+                $registros3 = mysqli_query($conexion, $consultar3);
+
                 //Campos para el formulario de nuevo pedido
                 $fields = '
                     <table class="tabla_añadir">
@@ -168,6 +171,20 @@
                                 }
                             $fields .= '</select>
                             </td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label for="seleccionar3">Código de artículo: </label></td>
+                            <td>
+                            <select name="seleccionar3" id="seleccionar3">';
+                                while ($registro3 = mysqli_fetch_row($registros3)) {
+                                $fields .= "<option value='$registro3[0]'>" . $registro3[0] . "</option>";
+                                }
+                            $fields .= '</select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="cantidad">Cantidad:</label></td>
+                            <td><input type="number" id="cantidad" name="cantidad" required></td>
                         </tr>
                     </table>
                 ';
@@ -225,6 +242,9 @@
                     $precio = mysqli_real_escape_string($conexion, $_POST['precio']);
                     //Creamos la sentencia SQL de inserción
                     $insertar = "INSERT INTO ARTICULOS (ARTCOD, ARTNOM, ARTCANT, ARTPREVEN) VALUES ('$nuevo_codigo', UPPER('$nombre'), '$cantidad', '$precio')";
+                    
+                    //Ejecutamos la sentencia de insertar
+                    mysqli_query($conexion, $insertar);                
                 break;
                 case 'proveedor':
                     //Consulta para obtener el último código de proveedores
@@ -249,6 +269,9 @@
                     $telefono = mysqli_real_escape_string($conexion, $_POST['telefono']);
                     //Creamos la sentencia SQL de inserción
                     $insertar = "INSERT INTO PROVEEDORES (PROCOD, PRONIF, PRONOM, PRODIR, PROTEL) VALUES ('$nuevo_codigo', '$nif', UPPER('$nombre'), UPPER('$direccion'), '$telefono')";
+                    
+                    //Ejecutamos la sentencia de insertar
+                    mysqli_query($conexion, $insertar);                
                 break;
                 case 'cliente':
                     //Consulta para obtener el último código de cliente
@@ -273,6 +296,9 @@
                     $cp = mysqli_real_escape_string($conexion, $_POST['cp']);
                     //Creamos la sentencia SQL de inserción
                     $insertar = "INSERT INTO CLIENTES (CLICOD, CLIDNI, CLINOM, CLITEL, CLICP) VALUES ('$nuevo_codigo', '$dni', UPPER('$nombre'), '$telefono', '$cp')";
+                    
+                    //Ejecutamos la sentencia de insertar
+                    mysqli_query($conexion, $insertar);
                 break;
                 case 'empleado':
                     //Consulta para obtener el último código de empleado
@@ -299,6 +325,9 @@
                     $rol = mysqli_real_escape_string($conexion, $_POST['rol']);
                     //Creamos la sentencia SQL de inserción
                     $insertar = "INSERT INTO EMPLEADOS (EMPCOD, EMPDNI, EMPNOM, EMPTEL, EMPSUE, EMPCON, EMPROL) VALUES ('$nuevo_codigo', '$dni', UPPER('$nombre'), '$telefono', '$sueldo', '$contraseña', '$rol')";
+
+                    //Ejecutamos la sentencia de insertar
+                    mysqli_query($conexion, $insertar);
                 break;
                 case 'pedido':
                     //Consulta para obtener el último código de pedido
@@ -319,13 +348,21 @@
                     //Guardamos en variables lo que el usuario ha enviado en el formulario obviando los caracteres especiales
                     $clicod = mysqli_real_escape_string($conexion, $_POST['seleccionar1']);
                     $empcod = mysqli_real_escape_string($conexion, $_POST['seleccionar2']);
+                    $artcod = mysqli_real_escape_string($conexion, $_POST['seleccionar3']);
+                    $cantidad = mysqli_real_escape_string($conexion, $_POST['cantidad']);
                     //Creamos la sentencia SQL de inserción
                     $insertar = "INSERT INTO PEDIDOS (PEDCOD, PEDFEC, CLICOD, EMPCOD) VALUES ('$nuevo_codigo', NOW(),'$clicod', '$empcod')";
+
+                    //Ejecutamos la sentencia de insertar
+                    mysqli_query($conexion, $insertar);
+
+                    //Creamos la sentencia SQL de inserción en la tabla LINEADEDETALLE 
+                    $insertar2 = "INSERT INTO LINEADEDETALLE (pedcod, artcod, cantidad) VALUES ('$nuevo_codigo', '$artcod', '$cantidad')";
+
+                    //Ejecutamos la sentencia de insertar
+                    mysqli_query($conexion, $insertar2);
                 break;
             }
-
-            //Ejecutamos la sentencia de insertar
-            mysqli_query($conexion, $insertar);
 
             //Cerramos la conexión
             mysqli_close($conexion);

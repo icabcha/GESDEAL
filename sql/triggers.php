@@ -30,22 +30,8 @@
         mysqli_select_db($conexion,"GESDEAL") or die("Error seleccionando la base de datos");
 
         //Creamos la sentencia SQL del trigger y la ejecutamos
-        //Este trigger insertará una fila en la tabla línea de detalle cuando se inserte un pedido
-        $trigger1="CREATE OR REPLACE TRIGGER LDD_AI 
-        AFTER INSERT ON PEDIDOS
-        FOR EACH ROW
-    	INSERT INTO LINEADEDETALLE
-        SELECT NEW.PEDCOD,A.ARTCOD,ABS(FLOOR(RAND()*(1-10)))
-        FROM ARTICULOS A
-	    ORDER BY RAND() LIMIT 1";
-        
-        if(!mysqli_query($conexion, $trigger1)){
-            echo "Error ejecutando el primer trigger. <br>"; 
-        }
-
-        //Creamos la sentencia SQL del trigger y la ejecutamos
         //Este trigger insertará una fila en la tabla suministrar cuando se inserte un artículo
-        $trigger2="CREATE OR REPLACE TRIGGER SUMINISTRAR_AI
+        $trigger1="CREATE OR REPLACE TRIGGER SUMINISTRAR_AI
         AFTER INSERT ON ARTICULOS
         FOR EACH ROW
         INSERT INTO SUMINISTRAR
@@ -53,28 +39,28 @@
         FROM PROVEEDORES P
         ORDER BY RAND() LIMIT 1";
         
-        if(!mysqli_query($conexion, $trigger2)){
-            echo "Error ejecutando el segundo trigger. <br>";
+        if(!mysqli_query($conexion, $trigger1)){
+            echo "Error ejecutando el primer trigger. <br>";
         }
 
         //Creamos la sentencia SQL del trigger y la ejecutamos
         //Este trigger actualizará el precio de compra de un artículo en la tabla suministrar cuando se actualice el precio de venta 
         //de un artículo en la tabla artículos
-        $trigger3="CREATE OR REPLACE TRIGGER SUMINISTRAR_AU_PREVEN
+        $trigger2="CREATE OR REPLACE TRIGGER SUMINISTRAR_AU_PREVEN
         AFTER UPDATE ON ARTICULOS
         FOR EACH ROW
         UPDATE SUMINISTRAR
         SET PRECIOCOMPRA=(NEW.ARTPREVEN)/1.3
         WHERE ARTCOD LIKE OLD.ARTCOD";
         
-        if(!mysqli_query($conexion, $trigger3)){
-            echo "Error ejecutando el tercer trigger. <br>";
+        if(!mysqli_query($conexion, $trigger2)){
+            echo "Error ejecutando el segundo trigger. <br>";
         }
 
         //Creamos la sentencia SQL del trigger y la ejecutamos
         //Este trigger insertará una fila en la tabla suministrar cuando se actualice la cantidad de un artículo y la nueva cantidad
         //sea mayor que la cantidad que tenía el artículo antes de ser actualizado
-        $trigger4="CREATE OR REPLACE TRIGGER SUMINISTRAR_AU_CANT
+        $trigger3="CREATE OR REPLACE TRIGGER SUMINISTRAR_AU_CANT
         AFTER UPDATE ON ARTICULOS
         FOR EACH ROW
         IF OLD.ARTCANT < NEW.ARTCANT THEN
@@ -84,14 +70,14 @@
         ORDER BY RAND() LIMIT 1;
         END IF";
         
-        if(!mysqli_query($conexion, $trigger4)){
-            echo "Error ejecutando el cuarto trigger. <br>"; 
+        if(!mysqli_query($conexion, $trigger3)){
+            echo "Error ejecutando el tercer trigger. <br>"; 
         }
 
         //Creamos la sentencia SQL del trigger y la ejecutamos
         //Este trigger actualizará la tabla artículos cuando se realice un pedido. Disminuirá la cantidad del artículo de la tabla
         //artículos, de aquel que se haya vendido dentro del pedido
-        $trigger5="CREATE OR REPLACE TRIGGER ARTICULOS_AI
+        $trigger4="CREATE OR REPLACE TRIGGER ARTICULOS_AI
         AFTER INSERT ON PEDIDOS
         FOR EACH ROW
         UPDATE ARTICULOS
@@ -102,8 +88,8 @@
                         FROM LINEADEDETALLE
                         WHERE PEDCOD LIKE NEW.PEDCOD)";
         
-        if(!mysqli_query($conexion, $trigger5)){
-            echo "Error ejecutando el quinto trigger. <br>"; 
+        if(!mysqli_query($conexion, $trigger4)){
+            echo "Error ejecutando el cuarto trigger. <br>"; 
         }
     ?>
 </body>
