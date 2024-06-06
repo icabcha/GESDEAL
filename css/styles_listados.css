@@ -32,7 +32,7 @@ td{
 }
 
 /*Estilo de la tercera columna de la tabla de avisos*/
-#col3{
+table[data-type="AVISOS"] td[data-key="ARTCANT"]{
     background-color: rgb(215, 100, 100);
 }
 

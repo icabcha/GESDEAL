@@ -12,6 +12,16 @@
     <!--Título principal de la página-->
     <h1>Avisos - Poco Stock</h1>
 
+    <div id="contenedor_paginacion">
+        <!--Contenedor para la barra de búsqueda-->
+        <div id="contenedor_busqueda"><input type="text" id="barraBusqueda" placeholder="Buscar artículos..."></div>
+        <!--Contenedor para la paginación-->
+        <div id="paginacion"></div>
+    </div>
+
+    <!--Incluimos el archivo JavaScript con las funciones-->
+    <script src="../js/functions.js"></script>
+
     <?php
         //Incluimos el archivo de funciones
         require '../functions.php';
@@ -40,7 +50,7 @@
     <!--Convertimos los datos PHP a JSON y los asignamos a un atributo data para poder utilizarlos fácilmente en JavaScript-->
     <div id="datos" data='<?php echo json_encode($articulos); ?>'></div>
 
-    <table id="tabla">
+    <table id="tabla" data-type="AVISOS">
         <!--Encabezado de la tabla-->
         <thead>
             <tr id="fila1">
@@ -56,7 +66,7 @@
                     echo '<tr>';
                     echo '<td>' . $articulo['ARTCOD'] . '</td>';
                     echo '<td>' . $articulo['ARTNOM'] . '</td>';
-                    echo '<td id="col3">' . $articulo['ARTCANT'] . '</td>';
+                    echo '<td>' . $articulo['ARTCANT'] . '</td>';
                     echo '</tr>';
                 }
             ?>
