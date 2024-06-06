@@ -31,10 +31,12 @@ td{
     background-color: #008037;
 }
 
+/*Estilo de la tercera columna de la tabla de avisos*/
 #col3{
     background-color: rgb(215, 100, 100);
 }
 
+/*Estilo de la tabla en la que se encuentran los campos del formulario de añadir*/
 .tabla_añadir, .tabla_añadir td{
     border: none;
 }
@@ -58,10 +60,21 @@ td{
     border-bottom: 2px solid #008037;
 }
 
-/* Estilo para el contenedor de paginación */
+/*Estilo para el contenedor de paginación*/
 #contenedor_paginacion{
     display: flex;
-    justify-content: flex-end; /* Alinear los elementos al final del contenedor (derecha) */
+}
+
+/*Estilo para el contenedor de la barra de búsqueda*/
+#contenedor_busqueda {
+    margin-left: auto; 
+    margin-right: 10px;
+}
+
+/*Estilo para la barra de búsqueda*/
+#barraBusqueda {
+    margin-right: 10px;
+    margin-top: 5.5px;;
 }
 
 /*Estilo para los botones de paginación*/
@@ -80,11 +93,13 @@ td{
     background-color: #006022;
 }
 
+/*Estilo del botón de paginación que está activo, para indicar en qué página estamos*/
 .paginacion-boton.active {
     background-color: #006022;
     color: white;
 }
 
+/*Estilo de los botones de añadir elementos en los listados*/
 .button{
     display: inline-block;
     border-radius: 4px;
@@ -101,6 +116,7 @@ td{
     margin-right: auto;
 }
 
+/*Estilo del contenedor del formulario de añadir y el botón de añadir*/
 #contenido{
     display: flex;
     align-items: flex-start;
@@ -126,7 +142,7 @@ label{
     font-weight: bold;
 }
 
-/* Estilo de los campos de entrada del formulario*/
+/*Estilo de los campos de entrada del formulario*/
 input, select{
     width: 99%;
     padding: 10px;
@@ -136,7 +152,7 @@ input, select{
     box-sizing: border-box;
 }
 
-/* Estilo del botón del formulario*/
+/* Estilo del botón del formulario de añadir*/
 input[type="submit"] {
     width: 100%;
     background-color: #008037;
@@ -147,11 +163,13 @@ input[type="submit"] {
     cursor: pointer;
 }
 
+/*Estilo cuando se pasa el cursor sobre del botón de añadir del formulario*/
 input[type="submit"]:hover {
     background-color: #006022;
 }
 
-.button_añadir{
+/*Estilo del botón de volver atrás*/
+.button_volver{
     display: inline-block;
     border-radius: 4px;
     background-color: #008037;
@@ -166,6 +184,7 @@ input[type="submit"]:hover {
     margin-right: auto;
 }
 
+/*Estilo para ocultar la barra de desplazamiento*/
 ::-webkit-scrollbar{
     display: none;
 }
