@@ -192,9 +192,9 @@
 
         <!--Botón para volver a los listados-->
         <?php if ($type == 'proveedor'){ ?>
-            <a href="../proveedores.php"><button class="button_añadir">Volver atrás</button></a>
+            <a href="../proveedores.php"><button class="button_volver">Volver atrás</button></a>
         <?php }else{ ?>
-            <a href="../<?php echo $type; ?>s.php"><button class="button_añadir">Volver atrás</button></a>
+            <a href="../<?php echo $type; ?>s.php"><button class="button_volver">Volver atrás</button></a>
         <?php } ?>
     </div>
     
