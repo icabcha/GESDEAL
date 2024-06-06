@@ -11,14 +11,14 @@
     $conexion = conexionBD();
 
     //Verificamos si se ha especificado el tipo de datos, el campo de clave primaria y el ID del registro a eliminar
-    if(isset($_GET['type']) && isset($_GET['idField']) && isset($_GET['id'])){
+    if(isset($_GET['type']) && isset($_GET['clavePrimaria']) && isset($_GET['id'])){
         //Guardamos estos datos en variables
         $type = $_GET['type'];
-        $idField = $_GET['idField'];
+        $clavePrimaria = $_GET['clavePrimaria'];
         $id = $_GET['id'];
         
         //Creamos la sentencia SQL para eliminar el registro
-        $eliminar = "DELETE FROM $type WHERE $idField = '$id'";
+        $eliminar = "DELETE FROM $type WHERE $clavePrimaria = '$id'";
 
         //Ejecutamos la sentencia SQL anterior
         $resultado = mysqli_query($conexion, $eliminar);
