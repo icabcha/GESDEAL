@@ -54,8 +54,8 @@
         <!--Encabezado de la tabla-->
         <thead>
             <tr id="fila1">
-                <td>Código del artículo</td>
-                <td>Nombre del artículo</td>
+                <td>Código de artículo</td>
+                <td>Nombre de artículo</td>
                 <td>Cantidad disponible</td>
             </tr>
         </thead>
