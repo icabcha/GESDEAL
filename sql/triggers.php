@@ -75,10 +75,10 @@
         }
 
         //Creamos la sentencia SQL del trigger y la ejecutamos
-        //Este trigger actualizará la tabla artículos cuando se realice un pedido. Disminuirá la cantidad del artículo de la tabla
-        //artículos, de aquel que se haya vendido dentro del pedido
+        //Este trigger actualizará la tabla artículos cuando se realice un pedido, después de insertar una fila en la tabla LINEADEDETTALE
+        //Disminuirá la cantidad del artículo de la tabla artículos, de aquel que se haya vendido dentro del pedido
         $trigger4="CREATE OR REPLACE TRIGGER ARTICULOS_AI
-        AFTER INSERT ON PEDIDOS
+        AFTER INSERT ON LINEADEDETALLE
         FOR EACH ROW
         UPDATE ARTICULOS
         SET ARTCANT=(ARTCANT)-(SELECT CANTIDAD
