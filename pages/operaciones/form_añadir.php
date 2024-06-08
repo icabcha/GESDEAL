@@ -31,7 +31,7 @@
         switch ($type) {
             //Formulario para añadir un nuevo artículo
             case 'articulo':
-                $title = 'Nuevo Artículo';
+                $title = 'Nuevo artículo';
                 //Campos para el formulario de nuevo artículo
                 $fields = '
                     <table class="tabla_añadir">
@@ -52,7 +52,7 @@
             break;
             //Formulario para añadir un nuevo proveedor
             case 'proveedor':
-                $title = 'Nuevo Proveedor';
+                $title = 'Nuevo proveedor';
                 //Campos para el formulario de nuevo proveedor
                 $fields = '
                     <table class="tabla_añadir">
@@ -77,7 +77,7 @@
             break;
             //Formulario para añadir un nuevo cliente
             case 'cliente':
-                $title = 'Nuevo Cliente';
+                $title = 'Nuevo cliente';
                 //Campos para el formulario de nuevo cliente
                 $fields = '
                     <table class="tabla_añadir">
@@ -102,7 +102,7 @@
             break;
             //Formulario para añadir un nuevo empleado
             case 'empleado':
-                $title = 'Nuevo Empleado';
+                $title = 'Nuevo empleado';
                 //Campos para el formulario de nuevo empleado
                 $fields = '
                     <table class="tabla_añadir">
@@ -138,7 +138,7 @@
             break;
             //Formulario para añadir un nuevo pedido
             case 'pedido':
-                $title = 'Nuevo Pedido';
+                $title = 'Nuevo pedido';
                 //Creamos las sentencias SQL de consultas y las ejecutamos
                 $consultar1 = "SELECT CLICOD FROM CLIENTES";
                 $registros1 = mysqli_query($conexion, $consultar1);

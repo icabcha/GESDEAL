@@ -38,7 +38,7 @@ body{
 
 /*Estilo para los enlaces de la cabecera cuando el cursor se posiciona sobre ellos*/
 .cabecera a:hover{
-    color: #008037;
+    color: #003C36;
 }
 
 /*Estilo para las imágenes de la cabecera*/
@@ -68,7 +68,7 @@ iframe{
     width: 80%;
     background-color: white;
     text-align: center;
-    border: 2px solid #008037;
+    border: 2px solid #0EB18D;
     border-radius: 4px;
     padding: 2% 0;
 }
@@ -77,6 +77,7 @@ iframe{
 #logo{
     text-align: center;
     width: 200px;
+    margin-top: 20px;
 }
 
 /*Estilo del párrafo de la sección del texto de bienvenida de la página de inicio*/

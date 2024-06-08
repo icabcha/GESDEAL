@@ -10,7 +10,7 @@ h1, table{
     width: 100%;
     background-color: white;
     text-align: center;
-    border: 2px solid #008037;
+    border: 2px solid #0EB18D;
     border-radius: 4px;
     padding: 2% 0;
 }
@@ -28,7 +28,7 @@ td{
 
 /*Estilo de la primera fila de la tabla*/
 #fila1{
-    background-color: #008037;
+    background-color: #0EB18D;
 }
 
 /*Estilo de la tercera columna de la tabla de avisos*/
@@ -51,13 +51,13 @@ table[data-type="AVISOS"] td[data-key="ARTCANT"]{
 /*Estilo de la tabla cuya clase es ldd en la página de Linea de detalle*/
 .ldd{
     margin-top: 2%;
-   border-bottom: 2px solid #008037;
+   border-bottom: 2px solid #0EB18D;
 }
 
 /*Estilo de la fila que se añade a una tabla ya existente en la página Línea de detalle*/
 .ldd--row{
     border-top: none;
-    border-bottom: 2px solid #008037;
+    border-bottom: 2px solid #0EB18D;
 }
 
 /*Estilo para el contenedor de paginación*/
@@ -79,7 +79,7 @@ table[data-type="AVISOS"] td[data-key="ARTCANT"]{
 
 /*Estilo para los botones de paginación*/
 .paginacion-boton{
-    background-color: #008037;
+    background-color: #0EB18D;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -90,12 +90,12 @@ table[data-type="AVISOS"] td[data-key="ARTCANT"]{
 
 /*Estilo cuando se pasa el cursor sobre los botones de paginación*/
 .paginacion-boton:hover, .button:hover{
-    background-color: #006022;
+    background-color: #003C36;
 }
 
 /*Estilo del botón de paginación que está activo, para indicar en qué página estamos*/
 .paginacion-boton.active {
-    background-color: #006022;
+    background-color: #003C36;
     color: white;
 }
 
@@ -103,7 +103,7 @@ table[data-type="AVISOS"] td[data-key="ARTCANT"]{
 .button{
     display: inline-block;
     border-radius: 4px;
-    background-color: #008037;
+    background-color: #0EB18D;
     border: none;
     color: white;
     text-align: center;
@@ -129,7 +129,7 @@ table[data-type="AVISOS"] td[data-key="ARTCANT"]{
 /*Estilo del formulario*/
 form{
     background-color: white;
-    border: 2px solid #008037;
+    border: 2px solid #0EB18D;
     border-radius: 4px;
     padding: 10px 20px;  
     width: 30%;
@@ -155,7 +155,7 @@ input, select{
 /* Estilo del botón del formulario de añadir*/
 input[type="submit"] {
     width: 100%;
-    background-color: #008037;
+    background-color: #0EB18D;
     color: white;
     border: none;
     padding: 10px;
@@ -165,14 +165,14 @@ input[type="submit"] {
 
 /*Estilo cuando se pasa el cursor sobre del botón de añadir del formulario*/
 input[type="submit"]:hover {
-    background-color: #006022;
+    background-color: #003C36;
 }
 
 /*Estilo del botón de volver atrás*/
 .button_volver{
     display: inline-block;
     border-radius: 4px;
-    background-color: #008037;
+    background-color: #0EB18D;
     border: none;
     color: white;
     text-align: center;
@@ -182,6 +182,10 @@ input[type="submit"]:hover {
     margin-top: 430px;
     margin-left: 100px;
     margin-right: auto;
+}
+
+.button_volver:hover{
+    background-color: #003C36;
 }
 
 /*Estilo para ocultar la barra de desplazamiento*/

@@ -20,7 +20,7 @@ body{
     display: inline-block;
     overflow: hidden;
     border-radius: 50%;
-    border: 2px solid #008037;
+    border: 2px solid #0EB18D;
     background-color: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     max-width: 400px;
@@ -31,7 +31,7 @@ h1, table{
     width: 100%;
     background-color: white;
     text-align: center;
-    border: 2px solid #008037;
+    border: 2px solid #0EB18D;
     border-radius: 4px;
     padding: 2% 0;
 }
@@ -70,7 +70,7 @@ h1, table{
 /*Estilo del formulario*/
 form{
     background-color: white;
-    border: 2px solid #008037;
+    border: 2px solid #0EB18D;
     border-radius: 4px;
     padding: 10px 20px;  
     width: 300%;
@@ -96,7 +96,7 @@ input{
 /*Estilo del botón de guardar los datos del formulario*/
 .button{
     width: 99%;
-    background-color: #008037;
+    background-color: #0EB18D;
     color: white;
     padding: 14px 20px;
     border: none;
@@ -109,7 +109,7 @@ input{
 
 /*Estilo cuando se pasa el cursor sobre el botón de guardar los datos del formulario*/
 .button:hover{
-    background-color: #006022;
+    background-color: #003C36;
 }
 
 /*Estilo del input del código de empleado*/

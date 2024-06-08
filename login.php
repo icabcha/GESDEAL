@@ -71,7 +71,7 @@
         }
     ?>
     <!--Formulario para iniciar sesión-->
-    <p><img src="img/login.png" alt="Logo"></p>
+    <p><img src="img/logo.png" alt="Logo"></p>
     <div class="formulario">
         <form action="" method="POST">
             <p><label for="dni">DNI:</label></p>

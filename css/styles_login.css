@@ -2,7 +2,8 @@
 
 /*Estilo de todo el cuerpo de la página*/
 body{
-    background-color: #a6a6a6;
+    background-size: contain;
+    background-image: url('../img/fondo.jpeg');
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -10,7 +11,7 @@ body{
 .formulario{
     background-color: white;
     text-align: center;
-    border: 2px solid #008037;
+    border: 2px solid #0EB18D;
     border-radius: 4px;
     margin-left: 35%;
     margin-right: 35%;
@@ -25,15 +26,16 @@ p{
 
 /*Estilo de la imagen*/
 img{
-    width: 250px;
-    margin-bottom: -1%;
+    width: 200px;
+    margin-bottom: 10px;
+    margin-top: 80px;
 }
 
 /*Estilo botón de login*/
 .button{
     display: inline-block;
     border-radius: 4px;
-    background-color: #008037;
+    background-color: #0EB18D;
     border: none;
     color: black;
     text-align: center;
