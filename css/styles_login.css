@@ -82,6 +82,7 @@ img{
 #img_error{
     float: left;
     width: 2%;
+    margin-top: 0px;
     padding: 10px;
 }
 
