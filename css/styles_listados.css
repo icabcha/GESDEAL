@@ -63,6 +63,7 @@ table[data-type="AVISOS"] td[data-key="ARTCANT"]{
 /*Estilo para el contenedor de paginación*/
 #contenedor_paginacion{
     display: flex;
+    margin-bottom: 10px;
 }
 
 /*Estilo para el contenedor de la barra de búsqueda*/
