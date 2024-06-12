@@ -123,7 +123,7 @@ table[data-type="AVISOS"] td[data-key="ARTCANT"]{
     justify-content: space-evenly;
     width: 100%;
     flex-direction: row;
-    margin-left: 15%;
+    margin-left: 5%;
 }
 
 /*Estilo del formulario*/
@@ -131,8 +131,8 @@ form{
     background-color: white;
     border: 2px solid #0EB18D;
     border-radius: 4px;
-    padding: 10px 20px;  
-    width: 30%;
+    padding: 20px 20px;  
+    width: 50%;
 }
 
 /*Estilo de las etiquetas del formulario*/
@@ -146,7 +146,7 @@ label{
 input, select{
     width: 99%;
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 10x;
     border: 1px solid #CCCCCC;
     border-radius: 4px;
     box-sizing: border-box;
@@ -161,6 +161,7 @@ input[type="submit"] {
     padding: 10px;
     border-radius: 4px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 /*Estilo cuando se pasa el cursor sobre del botón de añadir del formulario*/
@@ -180,8 +181,8 @@ input[type="submit"]:hover {
     padding: 14px 20px;
     cursor: pointer;
     margin-top: 430px;
-    margin-left: 100px;
-    margin-right: auto;
+    margin-left: auto;
+    margin-right: auto; 
 }
 
 .button_volver:hover{
