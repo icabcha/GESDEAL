@@ -7,10 +7,10 @@ GESDEAL, por tanto, es un gestor de almacén o también denominado SGA (software
 
 ## Requisitos para el desarrollo del proyecto
 
--**Programas:** Visual Studio Code y XAMPP.
--**Lenguajes de programación:** PHP, MySQL, JavaScript y CSS.
--**Programa para la simulación del despliegue de la aplicación:** VirtualBox.
--**Servidores necesarios:** Servidor web, servidor DNS y servidor SQL.
+- **Programas:** Visual Studio Code y XAMPP.
+- **Lenguajes de programación:** PHP, MySQL, JavaScript y CSS.
+- **Programa para la simulación del despliegue de la aplicación:** VirtualBox.
+- **Servidores necesarios:** Servidor web, servidor DNS y servidor SQL.
 
 ## Prerequisitos para el uso del sistema
 
@@ -28,8 +28,8 @@ Una vez pulsemos en '**Clone**', tendremos el proyecto en nuestro entorno local.
 
 ## Uso del sistema desarrollado
 
-- Para acceder al software de forma local debemos ingresar la siguiente URL en nuestro navegador: [GESDEAL - Localhost](http://localhost/GESDEAL/login.php).
-- En el caso de haber desplegado el software en un servidor, debemos escribir la siguiente URL en nuestro navegador: [GESDEAL](http://gesdeal.com). Este es el dominio que hemos configurado en las máquinas virtuales simulando el despliegue de la aplicación.
+- Para acceder al software de forma local debemos ingresar la siguiente URL en nuestro navegador: [http://localhost/GESDEAL/login.php](http://localhost/GESDEAL/login.php).
+- En el caso de haber desplegado el software en un servidor, debemos escribir la siguiente URL en nuestro navegador: [http://gesdeal.com](http://gesdeal.com). Este es el dominio que hemos configurado en las máquinas virtuales simulando el despliegue de la aplicación.
 
 Al acceder a la URL proporcionada, ya sea en el entorno local o en el entorno de producción, nos encontraremos con una página de inicio de sesión donde podremos rellenar un formulario con nuestras credenciales, que en este caso serán el DNI y la contraseña del empleado que va a utilizar el sistema. 
 Para utilizar el sistema gestor de almacén podemos iniciar sesión con cualquier usuario que se encuentre en la base de datos como empleado. 
